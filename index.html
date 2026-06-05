@@ -89,16 +89,12 @@
   ============================================= -->
   <header class="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-outline">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
-      <!-- Menu Icon (mobile) -->
-      <button class="lg:hidden text-brand-primary text-2xl hover:opacity-80 transition-opacity" aria-label="Menu">
-        <i class="ti ti-menu-2"></i>
-      </button>
+      <div class="w-24"></div>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-8">
-        <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Loja Oficial</a>
-        <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Shopee</a>
-        <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Mercado Livre</a>
+      <nav class="flex items-center gap-2 sm:gap-4 whitespace-nowrap">
+        <a href="#" class="text-emerald-400 font-semibold text-[10px] sm:text-xs uppercase hover:opacity-80 transition-opacity duration-300">Loja Oficial</a>
+        <a href="#" class="text-amber-400 font-semibold text-[10px] sm:text-xs uppercase hover:opacity-80 transition-opacity duration-300">Mercado Livre</a>
+        <a href="#" class="text-emerald-400 font-semibold text-[10px] sm:text-xs uppercase hover:opacity-80 transition-opacity duration-300">Shopee</a>
       </nav>
     </div>
   </header>
@@ -111,42 +107,19 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
         <!-- Hero Image Area -->
-        <div class="relative h-[320px] sm:h-[420px] lg:h-[520px] bg-hero-gradient-mobile lg:bg-hero-gradient overflow-hidden">
-          <!-- Decorative gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg/70 lg:to-transparent"></div>
-
-          <!-- Shoe placeholder (CSS shape) -->
-          <div class="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2
-                      w-48 h-28 sm:w-64 sm:h-36 lg:w-72 lg:h-40
-                      bg-brand-surface-high/60 backdrop-blur-sm
-                      border border-brand-primary/50 rounded-[50%_50%_40%_40%/60%_60%_40%_40%]
-                      shadow-glow">
-            <!-- Massage dots -->
-            <div class="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 grid grid-cols-6 gap-2 sm:gap-3">
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
-              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
-            </div>
-          </div>
+        <div class="relative h-[320px] sm:h-[420px] lg:h-[520px] bg-brand-bg overflow-hidden flex items-center justify-center">
+          
+          <!-- Imagem Real Preenchendo o Fundo -->
+          <img src="foto-chinelo.png"
+               alt="Chinelo Recovery no Vestiario"
+               class="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-80" />
+          
+          <!-- Decorative gradient overlay (Para mesclar a foto suavemente com a cor do site) -->
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-bg/40 to-brand-bg z-10 pointer-events-none"></div>
 
           <!-- Origin label -->
-          <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6
-                      bg-brand-bg/80 backdrop-blur-sm border border-brand-primary/30
+          <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20
+                      bg-[#131313]/90 backdrop-blur-md border border-brand-primary/30
                       rounded-lg px-3 py-1.5 text-xs text-brand-primary uppercase tracking-wider font-medium">
             Granja Comary — Selecao
           </div>
@@ -157,7 +130,8 @@
           <!-- Badge -->
           <div class="inline-flex items-center gap-2 w-fit
                       bg-brand-secondary/15 border border-brand-secondary/40 rounded-full
-                      px-4 py-1.5 text-brand-secondary text-xs font-semibold uppercase tracking-wider">
+                      px-4 py-1.5 text-brand-secondary text-xs font-semibold uppercase tracking-wider
+                      animate-pulse-slow">
             <i class="ti ti-flame text-sm"></i>
             Alta Demanda
           </div>
