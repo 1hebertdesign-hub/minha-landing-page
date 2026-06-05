@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nike Mind 001 — Recuperacao de Elite</title>
+  <meta name="description" content="O chinelo de recuperacao muscular com 42 celulas de massagem plantar. Tecnologia de elite para o seu descanso." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#131313',
+              surface: '#1c1b1b',
+              'surface-high': '#2a2a2a',
+              'surface-highest': '#353534',
+              primary: '#86d7ae',
+              'primary-container': '#0a6847',
+              secondary: '#e7c433',
+              tertiary: '#2ddbde',
+              outline: '#3f4943',
+              text: '#e5e2e1',
+              'text-muted': '#bec9c1',
+              error: '#ffb4ab',
+              'on-primary': '#003824',
+              'on-secondary': '#221b00',
+            },
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            'btn': '0.75rem',
+            'card': '1rem',
+            'card-lg': '1.5rem',
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(135deg, #0a3d2a 0%, #0a6847 50%, #1a2e22 100%)',
+            'hero-gradient-mobile': 'linear-gradient(160deg, #0d1f17 0%, #0a6847 50%, #0d2a1a 100%)',
+            'glow-border': 'linear-gradient(135deg, rgba(134,215,174,0.3), rgba(45,219,222,0.1))',
+            'page-gradient': 'linear-gradient(180deg, #131313 0%, #0e1a14 50%, #131313 100%)',
+            'section-gradient': 'linear-gradient(180deg, #131313 0%, #0f1612 100%)',
+          },
+          boxShadow: {
+            'glow': '0 0 24px -6px rgba(134,215,174,0.25)',
+            'glow-lg': '0 0 40px -8px rgba(134,215,174,0.3)',
+            'glow-yellow': '0 0 24px -6px rgba(231,196,51,0.25)',
+            'card': '0 4px 24px -4px rgba(0,0,0,0.5)',
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+        },
+      },
+    }
+  </script>
+</head>
+
+<body class="bg-brand-bg font-sans text-brand-text antialiased">
+
+  <!-- ============================================
+       ANNOUNCEMENT BAR
+  ============================================= -->
+  <div class="bg-brand-secondary text-brand-on-secondary text-center font-bold tracking-wider uppercase
+              py-2.5 px-4 text-xs sm:text-sm">
+    <span class="inline-flex items-center gap-2">
+      &#127463;&#127479; Frete GRATIS para todo o Brasil
+      <span class="hidden sm:inline opacity-60">|</span>
+      <span class="hidden sm:inline">Entrega em 24h apos PIX</span>
+      &#127463;&#127479;
+    </span>
+  </div>
+
+  <!-- ============================================
+       HEADER / NAVIGATION
+  ============================================= -->
+  <header class="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-outline">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
+      <!-- Menu Icon (mobile) -->
+      <button class="lg:hidden text-brand-primary text-2xl hover:opacity-80 transition-opacity" aria-label="Menu">
+        <i class="ti ti-menu-2"></i>
+      </button>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Loja Oficial</a>
+        <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Shopee</a>
+        <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Mercado Livre</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================
+       HERO SECTION
+  ============================================= -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+
+        <!-- Hero Image Area -->
+        <div class="relative h-[320px] sm:h-[420px] lg:h-[520px] bg-hero-gradient-mobile lg:bg-hero-gradient overflow-hidden">
+          <!-- Decorative gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg/70 lg:to-transparent"></div>
+
+          <!-- Shoe placeholder (CSS shape) -->
+          <div class="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2
+                      w-48 h-28 sm:w-64 sm:h-36 lg:w-72 lg:h-40
+                      bg-brand-surface-high/60 backdrop-blur-sm
+                      border border-brand-primary/50 rounded-[50%_50%_40%_40%/60%_60%_40%_40%]
+                      shadow-glow">
+            <!-- Massage dots -->
+            <div class="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 grid grid-cols-6 gap-2 sm:gap-3">
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary rounded-full opacity-80"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-primary rounded-full opacity-60"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
+              <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-brand-secondary/50 rounded-full"></span>
+            </div>
+          </div>
+
+          <!-- Origin label -->
+          <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6
+                      bg-brand-bg/80 backdrop-blur-sm border border-brand-primary/30
+                      rounded-lg px-3 py-1.5 text-xs text-brand-primary uppercase tracking-wider font-medium">
+            Granja Comary — Selecao
+          </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="px-6 sm:px-8 lg:px-12 py-10 sm:py-14 lg:py-16 flex flex-col justify-center gap-6">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 w-fit
+                      bg-brand-secondary/15 border border-brand-secondary/40 rounded-full
+                      px-4 py-1.5 text-brand-secondary text-xs font-semibold uppercase tracking-wider">
+            <i class="ti ti-flame text-sm"></i>
+            Alta Demanda
+          </div>
+
+          <!-- Headline -->
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase leading-none tracking-wide">
+            O Chinelo que os
+            <span class="text-brand-primary">Craques</span>
+            Usam no Vestiario
+          </h1>
+
+          <!-- Subtext -->
+          <p class="text-brand-text-muted text-base sm:text-lg leading-relaxed max-w-xl">
+            Tecnologia de recuperacao muscular com 42 celulas de massagem plantar. Engenharia de elite para o seu descanso.
+          </p>
+
+          <!-- Trust chips -->
+          <div class="flex flex-wrap gap-3 mt-2">
+            <div class="flex items-center gap-2 bg-brand-surface border border-brand-outline rounded-lg px-4 py-2.5 text-sm">
+              <i class="ti ti-truck-delivery text-brand-primary text-lg"></i>
+              <span>Entrega 24h</span>
+            </div>
+            <div class="flex items-center gap-2 bg-brand-surface border border-brand-outline rounded-lg px-4 py-2.5 text-sm">
+              <i class="ti ti-shield-check text-brand-primary text-lg"></i>
+              <span>Garantia 7 dias</span>
+            </div>
+            <div class="flex items-center gap-2 bg-brand-surface border border-brand-outline rounded-lg px-4 py-2.5 text-sm">
+              <i class="ti ti-star text-brand-secondary text-lg"></i>
+              <span>4.8k atletas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTENT: SEGREDO + TECNOLOGIA
+  ============================================= -->
+  <section id="recovery" class="relative bg-section-gradient">
+    <!-- Subtle top divider -->
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-outline to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+        <!-- Left Column: Segredo da Recuperacao -->
+        <div class="flex flex-col gap-6">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary">
+            Exclusivo
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase leading-none tracking-wide">
+            O Segredo da <span class="text-brand-secondary">Recuperacao</span>
+          </h2>
+
+          <!-- Blockquote -->
+          <blockquote class="border-l-4 border-brand-secondary pl-5 py-2">
+            <p class="text-base sm:text-lg font-semibold leading-relaxed text-brand-text">
+              "O mesmo protocolo de recuperacao usado por atletas de alto rendimento — agora acessivel para voce."
+            </p>
+          </blockquote>
+
+          <p class="text-brand-text-muted text-base leading-relaxed">
+            Durante a Copa 2026, cameras capturam um detalhe pouco notado: nos momentos de descanso, atletas de elite trocam os chuteiros por este chinelo verde-azulado com bolhas salientes...
+          </p>
+
+          <!-- Image grid placeholders -->
+          <div class="grid grid-cols-2 gap-4 mt-2">
+            <div class="h-32 sm:h-40 bg-brand-surface-high rounded-card border border-brand-outline relative overflow-hidden group">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <span class="absolute bottom-3 left-3 text-xs font-medium text-brand-primary bg-black/70 px-2 py-1 rounded-md">
+                Vestiario
+              </span>
+            </div>
+            <div class="h-32 sm:h-40 bg-brand-surface-high rounded-card border border-brand-outline relative overflow-hidden group">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <span class="absolute bottom-3 left-3 text-xs font-medium text-brand-primary bg-black/70 px-2 py-1 rounded-md">
+                Detalhe Sola
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Tecnologia -->
+        <div id="tecnologia" class="flex flex-col gap-6 lg:border-l lg:border-brand-outline lg:pl-16">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary">
+            Tecnologia
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase leading-none tracking-wide">
+            42 Celulas de <span class="text-brand-secondary">Massagem</span>
+          </h2>
+
+          <div class="flex flex-col gap-5 mt-2">
+            <!-- Feature 1: Distribuicao de Pressao -->
+            <div class="flex items-start gap-4 p-5 bg-brand-surface border border-brand-outline rounded-card
+                        hover:border-brand-primary/30 hover:shadow-glow transition-all duration-500">
+              <div class="w-12 h-12 rounded-full bg-brand-primary/15 flex items-center justify-center flex-shrink-0">
+                <i class="ti ti-bolt text-brand-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Distribuicao de Pressao</h4>
+                <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Nodulos estrategicamente posicionados que aliviam a tensao miofascial.</p>
+              </div>
+            </div>
+
+            <!-- Feature 2: Amortecimento Adaptativo -->
+            <div class="flex items-start gap-4 p-5 bg-brand-surface border border-brand-outline rounded-card
+                        hover:border-brand-tertiary/30 hover:shadow-glow transition-all duration-500">
+              <div class="w-12 h-12 rounded-full bg-brand-tertiary/15 flex items-center justify-center flex-shrink-0">
+                <i class="ti ti-wave-sine text-brand-tertiary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Amortecimento Adaptativo</h4>
+                <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Espuma de dupla densidade que absorve impacto e retorna energia.</p>
+              </div>
+            </div>
+
+            <!-- Feature 3: Drenagem Termica -->
+            <div class="flex items-start gap-4 p-5 bg-brand-surface border border-brand-outline rounded-card
+                        hover:border-brand-secondary/30 hover:shadow-glow-yellow transition-all duration-500">
+              <div class="w-12 h-12 rounded-full bg-brand-secondary/15 flex items-center justify-center flex-shrink-0">
+                <i class="ti ti-temperature text-brand-secondary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Drenagem Termica</h4>
+                <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Canais de ventilacao reduzem temperatura da sola em ate 2 graus.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       OFFER + CHECKOUT
+  ============================================= -->
+  <section class="relative">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+        <!-- Price Card -->
+        <div class="bg-brand-surface border border-brand-primary/25 rounded-card-lg p-6 sm:p-8 shadow-glow-lg
+                    flex flex-col gap-5">
+          <!-- Badges row -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1
+                         bg-brand-error/10 border border-brand-error/30 rounded-full
+                         text-brand-error text-xs font-semibold uppercase tracking-wider">
+              Oferta Exclusiva
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 ml-auto
+                         bg-brand-primary/15 border border-brand-primary/30 rounded-full
+                         text-brand-primary text-xs font-semibold tracking-wider">
+              <i class="ti ti-clock text-sm"></i> 14:59
+            </span>
+          </div>
+
+          <!-- Price block -->
+          <div>
+            <p class="text-sm text-brand-text-muted line-through">De R$ 299,00</p>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-display text-2xl text-brand-secondary">Por R$</span>
+              <span class="font-display text-6xl sm:text-7xl text-brand-secondary leading-none">189</span>
+              <span class="font-display text-2xl sm:text-3xl text-brand-secondary">,90</span>
+            </div>
+            <p class="text-sm text-brand-primary font-medium mt-2">em ate 12x no cartao</p>
+          </div>
+
+          <!-- Stock urgency -->
+          <div class="border-t border-brand-outline pt-5">
+            <div class="flex justify-between items-center text-sm mb-2">
+              <span class="text-brand-error flex items-center gap-1.5">
+                <i class="ti ti-alert-triangle text-base"></i>
+                Restam 23 unidades
+              </span>
+              <span class="text-brand-text-muted">85% vendido</span>
+            </div>
+            <div class="w-full h-2 bg-brand-surface-highest rounded-full overflow-hidden">
+              <div class="h-full w-[85%] bg-brand-secondary rounded-full"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Buttons -->
+        <div class="flex flex-col gap-5 lg:pt-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.1em] text-brand-text-muted text-center">
+            Escolha onde comprar
+          </p>
+
+          <!-- Primary CTA -->
+          <a href="#"
+             class="flex items-center justify-center gap-3
+                    bg-brand-primary text-brand-on-primary rounded-btn
+                    py-4 px-8 text-base font-bold uppercase tracking-wider
+                    hover:bg-brand-primary/90 hover:shadow-glow-lg
+                    active:scale-[0.98] transition-all duration-300 ease-out">
+            <i class="ti ti-shopping-cart text-xl"></i>
+            Comprar no Site Oficial
+          </a>
+
+          <!-- Marketplace buttons -->
+          <div class="grid grid-cols-2 gap-4">
+            <a href="#"
+               class="flex flex-col items-center justify-center gap-1
+                      bg-brand-surface border border-brand-outline rounded-btn
+                      py-4 px-4
+                      hover:border-orange-500/40 hover:bg-brand-surface-high
+                      active:scale-[0.98] transition-all duration-300 ease-out group">
+              <span class="text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:text-orange-400 transition-colors">SHOPEE</span>
+              <span class="text-xs text-brand-primary">Frete Gratis</span>
+            </a>
+            <a href="#"
+               class="flex flex-col items-center justify-center gap-1
+                      bg-brand-surface border border-brand-outline rounded-btn
+                      py-4 px-4
+                      hover:border-yellow-400/40 hover:bg-brand-surface-high
+                      active:scale-[0.98] transition-all duration-300 ease-out group">
+              <span class="text-yellow-400 font-bold text-sm uppercase tracking-wider group-hover:text-yellow-300 transition-colors">MERCADO LIVRE</span>
+              <span class="text-xs text-brand-primary">Chega Amanha</span>
+            </a>
+          </div>
+
+          <!-- Trust row -->
+          <div class="flex items-center justify-center gap-6 sm:gap-8 pt-2">
+            <span class="flex items-center gap-1.5 text-sm text-brand-text-muted">
+              <i class="ti ti-lock text-brand-primary text-base"></i> PIX Seguro
+            </span>
+            <span class="flex items-center gap-1.5 text-sm text-brand-text-muted">
+              <i class="ti ti-shield text-brand-primary text-base"></i> Site Protegido
+            </span>
+            <span class="flex items-center gap-1.5 text-sm text-brand-text-muted">
+              <i class="ti ti-package text-brand-primary text-base"></i> Entrega Garantida
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MOBILE STICKY FAB
+  ============================================= -->
+  <div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-3 bg-gradient-to-t from-brand-bg via-brand-bg/95 to-transparent">
+    <a href="#"
+       class="flex items-center justify-center gap-2
+              bg-brand-secondary text-brand-on-secondary rounded-btn
+              py-3.5 px-6 text-sm font-bold uppercase tracking-wider w-full
+              shadow-glow-yellow hover:brightness-110
+              active:scale-[0.98] transition-all duration-300 ease-out">
+      COMPRAR COM DESCONTO
+      <i class="ti ti-arrow-right text-lg"></i>
+    </a>
+  </div>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer class="bg-[#0e0e0e] border-t border-brand-outline mt-8 lg:mt-0">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 sm:py-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <!-- Logo -->
+        <a href="#" class="font-display text-xl text-brand-primary/70 tracking-wider hover:text-brand-primary transition-colors">
+          NIKE MIND 001
+        </a>
+
+        <!-- Links -->
+        <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Terms of Service</a>
+          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Recovery Science</a>
+          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Contact Support</a>
+        </nav>
+
+        <!-- Copyright -->
+        <p class="text-sm text-brand-text-muted">
+          &copy; 2026 NIKE RECOVERY LABS.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom padding for mobile FAB -->
+    <div class="h-16 lg:h-0"></div>
+  </footer>
+
+</body>
+</html>

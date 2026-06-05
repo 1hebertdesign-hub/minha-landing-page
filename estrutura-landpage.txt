@@ -1,0 +1,11 @@
+Estrutura da Landing Page - Nike Mind 001
+
+| Secao                  | Descricao                                                                                                              |
+|------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Announcement Bar       | Banner amarelo com frete gratis e entrega 24h                                                                          |
+| Header                 | Logo "NIKE MIND 001", nav desktop, hamburger mobile, carrinho — sticky com backdrop-blur                               |
+| Hero                   | Grid 2 colunas (desktop) / empilhado (mobile). Gradiente verde/preto, chinelo CSS, badge "Alta Demanda", trust chips   |
+| Segredo + Tecnologia   | Grid 2 colunas com blockquote, imagens placeholder, e 3 feature cards com icones e hover glow                          |
+| Oferta + Checkout      | Card de preco com glow verde, timer, barra de estoque 85%, CTAs (Site Oficial, Shopee, Mercado Livre), selos confianca |
+| Footer                 | Logo, links, copyright, padding extra para o FAB mobile                                                                |
+| FAB Mobile             | Botao fixo amarelo "COMPRAR COM DESCONTO" — visivel so no mobile (lg:hidden)                                           |

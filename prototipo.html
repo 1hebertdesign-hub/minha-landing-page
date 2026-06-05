@@ -1,0 +1,471 @@
+
+<style>
+  h2.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-sans);}
+  .root{padding:1.5rem 0;display:flex;flex-direction:column;gap:2.5rem;}
+  .label-section{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;}
+
+  /* ── DEVICE WRAPPERS ── */
+  .device-desktop{
+    background:#1a1a1a;border-radius:10px;overflow:hidden;
+    border:1.5px solid #333;position:relative;
+    width:100%;
+  }
+  .device-mobile{
+    background:#1a1a1a;border-radius:20px;overflow:hidden;
+    border:2px solid #333;position:relative;
+    width:200px;flex-shrink:0;
+    box-shadow:0 0 0 6px #111;
+  }
+  .device-mobile .notch{
+    position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:60px;height:14px;background:#111;border-radius:0 0 10px 10px;
+    z-index:10;
+  }
+  .browser-bar{
+    background:#0d0d0d;padding:6px 10px;display:flex;align-items:center;gap:6px;
+    border-bottom:1px solid #2a2a2a;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;}
+  .url-bar{background:#1c1c1c;border-radius:4px;flex:1;height:14px;margin-left:4px;}
+
+  /* ── COLOR TOKENS matching the site ── */
+  :root{
+    --c-bg:#131313;
+    --c-surface:#1c1b1b;
+    --c-surface-high:#2a2a2a;
+    --c-surface-highest:#353534;
+    --c-primary:#86d7ae;
+    --c-secondary:#e7c433;
+    --c-tertiary:#2ddbde;
+    --c-outline:#3f4943;
+    --c-text:#e5e2e1;
+    --c-text-muted:#bec9c1;
+    --c-error:#ffb4ab;
+    --c-on-primary:#003824;
+  }
+
+  .page{background:var(--c-bg);color:var(--c-text);}
+
+  /* ── SHARED COMPONENTS ── */
+  .bar{height:6px;border-radius:3px;}
+  .pill{display:inline-flex;align-items:center;gap:4px;border-radius:99px;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+  .badge-fire{background:rgba(231,196,51,.15);border:1px solid rgba(231,196,51,.4);color:var(--c-secondary);padding:3px 8px;}
+  .badge-err{background:rgba(255,180,171,.12);border:1px solid rgba(255,180,171,.3);color:var(--c-error);padding:2px 6px;}
+  .badge-prm{background:rgba(134,215,174,.15);border:1px solid rgba(134,215,174,.3);color:var(--c-primary);padding:2px 6px;}
+  .rounded-card{background:var(--c-surface);border:1px solid var(--c-outline);border-radius:10px;padding:10px;}
+  .glow-card{background:var(--c-surface);border:1px solid rgba(134,215,174,.25);border-radius:10px;padding:10px;box-shadow:0 0 16px -4px rgba(134,215,174,.2);}
+  .btn-primary{background:var(--c-primary);color:var(--c-on-primary);border-radius:8px;font-size:10px;font-weight:700;text-transform:uppercase;padding:7px 10px;text-align:center;letter-spacing:.05em;}
+  .btn-ghost{background:var(--c-surface);border:1px solid var(--c-outline);border-radius:8px;font-size:9px;font-weight:600;text-transform:uppercase;padding:5px 8px;text-align:center;color:var(--c-text);}
+  .btn-fab{background:var(--c-secondary);color:#221b00;border-radius:8px;font-size:10px;font-weight:700;text-transform:uppercase;padding:8px 10px;text-align:center;letter-spacing:.05em;}
+  .feat-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;}
+
+  /* ══════════════════════════════════════
+     DESKTOP LAYOUT
+  ══════════════════════════════════════ */
+  .dt-layout{display:flex;flex-direction:column;font-size:10px;}
+
+  /* Announcement bar */
+  .dt-announce{background:var(--c-secondary);color:#221b00;font-size:9px;font-weight:700;text-align:center;padding:4px 0;letter-spacing:.06em;}
+
+  /* Header */
+  .dt-header{background:var(--c-bg);border-bottom:1px solid var(--c-outline);display:flex;align-items:center;justify-content:space-between;padding:8px 24px;}
+  .dt-logo{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--c-primary);letter-spacing:.05em;}
+  .dt-nav{display:flex;gap:12px;}
+  .dt-nav a{font-size:9px;color:var(--c-text-muted);text-decoration:none;}
+
+  /* Hero — two column */
+  .dt-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--c-bg);}
+  .dt-hero-img{background:var(--c-surface);height:200px;position:relative;overflow:hidden;}
+  .dt-hero-img-fill{width:100%;height:100%;background:linear-gradient(135deg,#0a3d2a,#0a6847,#1a2e22);opacity:.9;}
+  .dt-hero-img-shoe{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:80px;height:45px;background:var(--c-surface-high);border-radius:50% 50% 40% 40%/60% 60% 40% 40%;border:1px solid var(--c-primary);}
+  .dt-hero-shoe-dots{position:absolute;top:6px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(5,6px);gap:3px;}
+  .dt-hero-shoe-dots span{width:5px;height:5px;background:var(--c-secondary);border-radius:50%;display:block;}
+  .dt-hero-content{padding:20px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;}
+  .dt-hero-title{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--c-text);text-transform:uppercase;}
+  .dt-hero-title em{color:var(--c-primary);font-style:normal;}
+  .dt-hero-sub{font-size:10px;color:var(--c-text-muted);line-height:1.5;}
+  .dt-trust-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .dt-trust-chip{display:flex;align-items:center;gap:4px;background:var(--c-surface);border:1px solid var(--c-outline);border-radius:6px;padding:4px 8px;font-size:9px;color:var(--c-text);}
+  .dt-trust-chip i{color:var(--c-primary);font-size:11px;}
+
+  /* Content grid */
+  .dt-content{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .dt-col{padding:16px 20px;display:flex;flex-direction:column;gap:12px;}
+  .dt-section-label{font-size:9px;font-weight:600;color:var(--c-primary);text-transform:uppercase;letter-spacing:.12em;}
+  .dt-section-title{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--c-text);text-transform:uppercase;}
+  .dt-section-title .hl{color:var(--c-secondary);}
+  .dt-blockquote{border-left:3px solid var(--c-secondary);padding-left:10px;font-size:9px;color:var(--c-text);line-height:1.4;font-weight:600;}
+  .dt-para{font-size:9px;color:var(--c-text-muted);line-height:1.5;}
+
+  /* Tech cards row */
+  .dt-tech-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 20px 16px;}
+  .dt-tech-card{background:var(--c-surface);border:1px solid var(--c-outline);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px;}
+  .dt-tech-card .icon-wrap{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .dt-tech-card h4{font-size:9px;font-weight:700;text-transform:uppercase;color:var(--c-text);letter-spacing:.04em;}
+  .dt-tech-card p{font-size:8px;color:var(--c-text-muted);line-height:1.4;}
+
+  /* Offer + checkout row */
+  .dt-offer-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 16px;}
+
+  /* Price card */
+  .dt-price-label{font-size:8px;text-decoration:line-through;color:var(--c-text-muted);}
+  .dt-price-big{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--c-secondary);line-height:1;}
+  .dt-price-suffix{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--c-secondary);}
+  .dt-installment{font-size:8px;color:var(--c-primary);}
+  .dt-stock-row{display:flex;justify-content:space-between;font-size:8px;margin-top:4px;}
+  .dt-stock-bar{height:5px;background:var(--c-surface-highest);border-radius:3px;overflow:hidden;margin-top:3px;}
+  .dt-stock-fill{height:100%;width:85%;background:var(--c-secondary);border-radius:3px;}
+
+  /* Footer */
+  .dt-footer{background:#0e0e0e;border-top:1px solid var(--c-outline);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .dt-footer-logo{font-family:'Bebas Neue',sans-serif;font-size:12px;color:var(--c-primary);opacity:.7;}
+  .dt-footer-links{display:flex;gap:10px;}
+  .dt-footer-links a{font-size:8px;color:var(--c-text-muted);text-decoration:none;}
+  .dt-footer-copy{font-size:8px;color:var(--c-text-muted);}
+
+  /* ══════════════════════════════════════
+     MOBILE LAYOUT
+  ══════════════════════════════════════ */
+  .mb-layout{display:flex;flex-direction:column;font-size:9px;}
+  .mb-announce{background:var(--c-secondary);color:#221b00;font-size:7.5px;font-weight:700;text-align:center;padding:4px 6px;letter-spacing:.04em;margin-top:14px;}
+  .mb-header{background:var(--c-bg);border-bottom:1px solid var(--c-outline);display:flex;align-items:center;justify-content:space-between;padding:6px 10px;}
+  .mb-logo{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--c-primary);}
+  .mb-hero-img{height:110px;background:linear-gradient(160deg,#0d1f17,#0a6847,#0d2a1a);position:relative;overflow:hidden;}
+  .mb-shoe{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:70px;height:38px;background:rgba(134,215,174,.1);border:1px solid var(--c-primary);border-radius:50% 50% 35% 35%/55% 55% 35% 35%;}
+  .mb-shoe-dots{position:absolute;top:7px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(5,5px);gap:2px;}
+  .mb-shoe-dots span{width:4px;height:4px;background:var(--c-secondary);border-radius:50%;display:block;}
+  .mb-hero-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,var(--c-bg),transparent);height:50px;}
+  .mb-hero-content{padding:8px 10px;display:flex;flex-direction:column;gap:6px;}
+  .mb-hero-title{font-family:'Bebas Neue',sans-serif;font-size:20px;line-height:1;text-transform:uppercase;color:var(--c-text);}
+  .mb-hero-title em{color:var(--c-primary);font-style:normal;}
+  .mb-hero-sub{font-size:8px;color:var(--c-text-muted);line-height:1.4;}
+  .mb-trust{display:flex;gap:5px;overflow:hidden;}
+  .mb-trust-chip{flex-shrink:0;display:flex;align-items:center;gap:3px;background:var(--c-surface);border:1px solid var(--c-outline);border-radius:5px;padding:3px 5px;font-size:7.5px;color:var(--c-text);}
+  .mb-trust-chip i{font-size:10px;color:var(--c-primary);}
+  .mb-sec{padding:8px 10px;border-bottom:1px solid var(--c-outline);}
+  .mb-sec-label{font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--c-primary);margin-bottom:3px;}
+  .mb-sec-title{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--c-text);text-transform:uppercase;}
+  .mb-sec-title .hl{color:var(--c-secondary);}
+  .mb-blockquote{border-left:2px solid var(--c-secondary);padding-left:6px;font-size:7.5px;color:var(--c-text);line-height:1.4;font-weight:600;margin-bottom:5px;}
+  .mb-para{font-size:7.5px;color:var(--c-text-muted);line-height:1.4;}
+  .mb-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px;}
+  .mb-img-box{height:40px;background:var(--c-surface-high);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--c-outline);}
+  .mb-img-caption{position:absolute;bottom:2px;left:3px;font-size:6px;background:rgba(0,0,0,.7);color:var(--c-primary);padding:1px 4px;border-radius:3px;}
+  .mb-feat-card{display:flex;align-items:flex-start;gap:6px;padding:5px;background:var(--c-surface);border:1px solid var(--c-outline);border-radius:6px;margin-bottom:5px;}
+  .mb-feat-icon{width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;}
+  .mb-feat-title{font-size:8px;font-weight:700;text-transform:uppercase;color:var(--c-text);}
+  .mb-feat-desc{font-size:7px;color:var(--c-text-muted);line-height:1.3;margin-top:1px;}
+  .mb-offer-card{background:var(--c-surface);border:1px solid rgba(134,215,174,.25);border-radius:8px;padding:8px;margin:0 10px 8px;}
+  .mb-price-del{font-size:8px;text-decoration:line-through;color:var(--c-text-muted);}
+  .mb-price-big{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--c-secondary);line-height:1;}
+  .mb-price-row{display:flex;align-items:baseline;gap:3px;}
+  .mb-price-pre{font-family:'Bebas Neue',sans-serif;font-size:12px;color:var(--c-secondary);}
+  .mb-installment{font-size:7px;color:var(--c-primary);margin-top:2px;}
+  .mb-stock-row{display:flex;justify-content:space-between;font-size:7px;margin-top:5px;}
+  .mb-stock-bar{height:4px;background:var(--c-surface-highest);border-radius:2px;overflow:hidden;margin-top:3px;}
+  .mb-stock-fill{height:100%;width:85%;background:var(--c-secondary);border-radius:2px;}
+  .mb-checkout{padding:8px 10px;display:flex;flex-direction:column;gap:5px;}
+  .mb-checkout-label{font-size:7.5px;font-weight:600;text-transform:uppercase;color:var(--c-text-muted);letter-spacing:.08em;text-align:center;margin-bottom:3px;}
+  .mb-btn-row{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+  .mb-btn-shopee{background:var(--c-surface);border:1px solid var(--c-outline);border-radius:7px;padding:5px 4px;text-align:center;font-size:8px;font-weight:700;color:#f06122;text-transform:uppercase;}
+  .mb-btn-meli{background:var(--c-surface);border:1px solid var(--c-outline);border-radius:7px;padding:5px 4px;text-align:center;font-size:8px;font-weight:700;color:#ffe600;text-transform:uppercase;}
+  .mb-fab{background:var(--c-secondary);color:#221b00;font-size:9px;font-weight:700;text-transform:uppercase;padding:8px 10px;text-align:center;letter-spacing:.05em;}
+  .mb-footer{background:#0e0e0e;border-top:1px solid var(--c-outline);padding:8px 10px;text-align:center;}
+  .mb-footer-logo{font-family:'Bebas Neue',sans-serif;font-size:11px;color:var(--c-primary);opacity:.7;margin-bottom:4px;}
+  .mb-footer-links{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;}
+  .mb-footer-links a{font-size:7px;color:var(--c-text-muted);text-decoration:none;}
+  .mb-footer-copy{font-size:6.5px;color:var(--c-text-muted);margin-top:4px;}
+
+  /* ── LAYOUT HOLDER ── */
+  .two-col{display:flex;gap:2rem;align-items:flex-start;}
+  .col-main{flex:1;min-width:0;}
+  .col-mobile{display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+  .device-label{font-size:10px;color:var(--color-text-secondary);text-align:center;}
+</style>
+
+<div class="root">
+  <h2 class="sr-only">Mockup de UI da landing page Nike Mind 001 — versão desktop e mobile</h2>
+
+  <div class="two-col">
+    <!-- ══ DESKTOP ══ -->
+    <div class="col-main">
+      <p class="label-section"><i class="ti ti-device-desktop" aria-hidden="true"></i> Desktop — horizontal</p>
+
+      <div class="device-desktop">
+        <div class="browser-bar">
+          <div class="dot" style="background:#ff5f57"></div>
+          <div class="dot" style="background:#ffbd2e"></div>
+          <div class="dot" style="background:#28c840"></div>
+          <div class="url-bar"></div>
+          <div style="width:14px;height:14px;background:#1c1c1c;border-radius:3px;margin-left:4px;"></div>
+        </div>
+
+        <div class="page dt-layout">
+          <!-- Announce -->
+          <div class="dt-announce">🇧🇷 Frete GRÁTIS para todo o Brasil &nbsp;|&nbsp; Entrega em 24h após PIX</div>
+
+          <!-- Header -->
+          <div class="dt-header">
+            <div style="display:flex;gap:6px;align-items:center;">
+              <i class="ti ti-menu-2" style="color:var(--c-primary);font-size:14px;" aria-hidden="true"></i>
+            </div>
+            <div class="dt-logo">NIKE MIND 001</div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <div class="dt-nav">
+                <a href="#">Recovery</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Depoimentos</a>
+              </div>
+              <i class="ti ti-shopping-bag" style="color:var(--c-primary);font-size:14px;" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <!-- Hero -->
+          <div class="dt-hero">
+            <div class="dt-hero-img">
+              <div class="dt-hero-img-fill"></div>
+              <div class="dt-hero-img-shoe">
+                <div class="dt-hero-shoe-dots">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <div style="position:absolute;bottom:8px;left:8px;background:rgba(13,13,13,.8);border:1px solid rgba(134,215,174,.3);border-radius:4px;padding:2px 6px;font-size:7px;color:var(--c-primary);text-transform:uppercase;">Granja Comary — Seleção</div>
+            </div>
+            <div class="dt-hero-content">
+              <div class="pill badge-fire" style="width:fit-content;"><i class="ti ti-flame" style="font-size:10px;" aria-hidden="true"></i> Alta Demanda</div>
+              <div class="dt-hero-title">O Chinelo que os <em>Craques</em> Usam no Vestiário</div>
+              <p class="dt-hero-sub">Tecnologia de recuperação muscular com 42 células de massagem plantar. Engenharia de elite para o seu descanso.</p>
+              <div class="dt-trust-row">
+                <div class="dt-trust-chip"><i class="ti ti-truck-delivery" aria-hidden="true"></i> Entrega 24h</div>
+                <div class="dt-trust-chip"><i class="ti ti-shield-check" aria-hidden="true"></i> Garantia 7 dias</div>
+                <div class="dt-trust-chip"><i class="ti ti-star" style="color:var(--c-secondary);" aria-hidden="true"></i> 4.8k atletas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segredo + Imagem -->
+          <div class="dt-content">
+            <div class="dt-col">
+              <div class="dt-section-label">Exclusivo</div>
+              <div class="dt-section-title">O Segredo da <span class="hl">Recuperação</span></div>
+              <div class="dt-blockquote">"O mesmo protocolo de recuperação usado por atletas de alto rendimento — agora acessível para você."</div>
+              <p class="dt-para">Durante a Copa 2026, câmeras capturam um detalhe pouco notado: nos momentos de descanso, atletas de elite trocam os chuteiros por este chinelo verde-azulado com bolhas salientes...</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;">
+                <div style="height:48px;background:var(--c-surface-high);border-radius:6px;border:1px solid var(--c-outline);display:flex;align-items:flex-end;padding:4px;"><span style="font-size:6.5px;color:var(--c-primary);">Vestiário</span></div>
+                <div style="height:48px;background:var(--c-surface-high);border-radius:6px;border:1px solid var(--c-outline);display:flex;align-items:flex-end;padding:4px;"><span style="font-size:6.5px;color:var(--c-primary);">Detalhe Sola</span></div>
+              </div>
+            </div>
+            <div class="dt-col" style="border-left:1px solid var(--c-outline);">
+              <div class="dt-section-label">Tecnologia</div>
+              <div class="dt-section-title">42 Células de <span class="hl">Massagem</span></div>
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <div style="display:flex;align-items:flex-start;gap:7px;padding:7px;background:var(--c-surface);border:1px solid var(--c-outline);border-radius:7px;">
+                  <div class="feat-icon" style="background:rgba(134,215,174,.15);"><i class="ti ti-bolt" style="color:var(--c-primary);font-size:11px;" aria-hidden="true"></i></div>
+                  <div><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:var(--c-text);">Distribuição de Pressão</div><div style="font-size:7.5px;color:var(--c-text-muted);margin-top:2px;">Nódulos estrategicamente posicionados que aliviam a tensão miofascial.</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:7px;padding:7px;background:var(--c-surface);border:1px solid var(--c-outline);border-radius:7px;">
+                  <div class="feat-icon" style="background:rgba(45,219,222,.15);"><i class="ti ti-wave-sine" style="color:var(--c-tertiary);font-size:11px;" aria-hidden="true"></i></div>
+                  <div><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:var(--c-text);">Amortecimento Adaptativo</div><div style="font-size:7.5px;color:var(--c-text-muted);margin-top:2px;">Espuma de dupla densidade que absorve impacto.</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:7px;padding:7px;background:var(--c-surface);border:1px solid var(--c-outline);border-radius:7px;">
+                  <div class="feat-icon" style="background:rgba(231,196,51,.15);"><i class="ti ti-temperature" style="color:var(--c-secondary);font-size:11px;" aria-hidden="true"></i></div>
+                  <div><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:var(--c-text);">Drenagem Térmica</div><div style="font-size:7.5px;color:var(--c-text-muted);margin-top:2px;">Canais de ventilação reduzem temperatura da sola.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oferta + Checkout -->
+          <div class="dt-offer-row">
+            <!-- Price card -->
+            <div class="glow-card" style="display:flex;flex-direction:column;gap:7px;">
+              <div style="display:flex;gap:6px;align-items:center;">
+                <div class="pill badge-err">Oferta Exclusiva</div>
+                <div class="pill badge-prm" style="margin-left:auto;">⏱ 14:59</div>
+              </div>
+              <div>
+                <div class="dt-price-label">De R$ 299,00</div>
+                <div style="display:flex;align-items:baseline;gap:2px;">
+                  <span style="font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--c-secondary);">Por R$</span>
+                  <span class="dt-price-big">189</span>
+                  <span class="dt-price-suffix">,90</span>
+                </div>
+                <div class="dt-installment">em até 12x no cartão</div>
+              </div>
+              <div style="border-top:1px solid var(--c-outline);padding-top:6px;">
+                <div class="dt-stock-row">
+                  <span style="color:var(--c-error);"><i class="ti ti-alert-triangle" style="font-size:9px;" aria-hidden="true"></i> Restam 23 unidades</span>
+                  <span style="color:var(--c-text-muted);">85% vendido</span>
+                </div>
+                <div class="dt-stock-bar"><div class="dt-stock-fill"></div></div>
+              </div>
+            </div>
+
+            <!-- Checkout buttons -->
+            <div style="display:flex;flex-direction:column;gap:6px;justify-content:center;">
+              <div style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--c-text-muted);letter-spacing:.08em;text-align:center;margin-bottom:2px;">Escolha onde comprar</div>
+              <div class="btn-primary" style="display:flex;align-items:center;justify-content:center;gap:5px;"><i class="ti ti-shopping-cart" style="font-size:11px;" aria-hidden="true"></i> Comprar no Site Oficial</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+                <div class="btn-ghost" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 8px;">
+                  <span style="color:var(--c-secondary);font-size:8px;font-weight:700;">SHOPEE</span>
+                  <span style="font-size:7px;color:var(--c-primary);">Frete Grátis</span>
+                </div>
+                <div class="btn-ghost" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 8px;">
+                  <span style="color:#ffe600;font-size:8px;font-weight:700;">MERCADO LIVRE</span>
+                  <span style="font-size:7px;color:var(--c-primary);">Chega Amanhã</span>
+                </div>
+              </div>
+              <div style="display:flex;justify-content:center;gap:8px;padding-top:3px;">
+                <span style="font-size:7.5px;color:var(--c-text-muted);"><i class="ti ti-lock" style="font-size:9px;" aria-hidden="true"></i> PIX Seguro</span>
+                <span style="font-size:7.5px;color:var(--c-text-muted);"><i class="ti ti-shield" style="font-size:9px;" aria-hidden="true"></i> Site Protegido</span>
+                <span style="font-size:7.5px;color:var(--c-text-muted);"><i class="ti ti-package" style="font-size:9px;" aria-hidden="true"></i> Entrega Garantida</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="dt-footer">
+            <div class="dt-footer-logo">NIKE MIND 001</div>
+            <div class="dt-footer-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Recovery Science</a>
+              <a href="#">Contact Support</a>
+            </div>
+            <div class="dt-footer-copy">© 2026 NIKE RECOVERY LABS.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ MOBILE ══ -->
+    <div class="col-mobile">
+      <p class="label-section" style="text-align:center;"><i class="ti ti-device-mobile" aria-hidden="true"></i> Mobile — vertical</p>
+
+      <div class="device-mobile">
+        <div class="notch"></div>
+        <div class="page mb-layout">
+
+          <div class="mb-announce">🇧🇷 Frete GRÁTIS para todo o Brasil | 24h após PIX</div>
+
+          <div class="mb-header">
+            <i class="ti ti-menu-2" style="color:var(--c-primary);font-size:13px;" aria-hidden="true"></i>
+            <div class="mb-logo">NIKE MIND 001</div>
+            <i class="ti ti-shopping-bag" style="color:var(--c-primary);font-size:13px;" aria-hidden="true"></i>
+          </div>
+
+          <!-- Hero image -->
+          <div class="mb-hero-img">
+            <div class="mb-shoe">
+              <div class="mb-shoe-dots">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="mb-hero-overlay"></div>
+            <div style="position:absolute;top:8px;left:8px;">
+              <div class="pill badge-fire" style="font-size:7px;"><i class="ti ti-flame" style="font-size:9px;" aria-hidden="true"></i> Alta Demanda</div>
+            </div>
+          </div>
+
+          <!-- Hero content -->
+          <div class="mb-hero-content">
+            <div class="mb-hero-title">O Chinelo que os <em>Craques</em> Usam</div>
+            <p class="mb-hero-sub">Tecnologia de recuperação muscular com 42 células de massagem plantar.</p>
+            <div class="mb-trust">
+              <div class="mb-trust-chip"><i class="ti ti-truck-delivery" aria-hidden="true"></i> 24h PIX</div>
+              <div class="mb-trust-chip"><i class="ti ti-shield-check" aria-hidden="true"></i> 7 dias</div>
+              <div class="mb-trust-chip"><i class="ti ti-star" style="color:var(--c-secondary);" aria-hidden="true"></i> 4.8k</div>
+            </div>
+          </div>
+
+          <!-- Segredo -->
+          <div class="mb-sec">
+            <div class="mb-sec-label">Exclusivo</div>
+            <div class="mb-sec-title">O Segredo da <span class="hl">Recuperação</span></div>
+            <div class="mb-blockquote">"Protocolo de atletas de alto rendimento — agora acessível."</div>
+            <p class="mb-para">Câmeras capturam atletas de elite usando o chinelo na Copa 2026.</p>
+            <div class="mb-img-grid">
+              <div class="mb-img-box"><div class="mb-img-caption">Vestiário</div></div>
+              <div class="mb-img-box"><div class="mb-img-caption">Detalhe Sola</div></div>
+            </div>
+          </div>
+
+          <!-- Tech features -->
+          <div class="mb-sec">
+            <div class="mb-sec-label">Tecnologia</div>
+            <div class="mb-sec-title">42 Células de <span class="hl">Massagem</span></div>
+            <div style="margin-top:6px;">
+              <div class="mb-feat-card">
+                <div class="mb-feat-icon" style="background:rgba(134,215,174,.15);"><i class="ti ti-bolt" style="color:var(--c-primary);font-size:10px;" aria-hidden="true"></i></div>
+                <div><div class="mb-feat-title">Distribuição de Pressão</div><div class="mb-feat-desc">Nódulos aliviam tensão miofascial instantaneamente.</div></div>
+              </div>
+              <div class="mb-feat-card">
+                <div class="mb-feat-icon" style="background:rgba(45,219,222,.15);"><i class="ti ti-wave-sine" style="color:var(--c-tertiary);font-size:10px;" aria-hidden="true"></i></div>
+                <div><div class="mb-feat-title">Amortecimento Adaptativo</div><div class="mb-feat-desc">Espuma dupla densidade absorve impacto e retorna energia.</div></div>
+              </div>
+              <div class="mb-feat-card">
+                <div class="mb-feat-icon" style="background:rgba(231,196,51,.15);"><i class="ti ti-temperature" style="color:var(--c-secondary);font-size:10px;" aria-hidden="true"></i></div>
+                <div><div class="mb-feat-title">Drenagem Térmica</div><div class="mb-feat-desc">Reduz temperatura da sola em até 2°C.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oferta -->
+          <div class="mb-offer-card">
+            <div style="display:flex;gap:5px;align-items:center;margin-bottom:5px;">
+              <div class="pill badge-err" style="font-size:7px;">Oferta Exclusiva</div>
+              <div class="pill badge-prm" style="font-size:7px;margin-left:auto;">⏱ 14:59</div>
+            </div>
+            <div class="mb-price-del">De R$ 299,00</div>
+            <div class="mb-price-row">
+              <span class="mb-price-pre">Por R$</span>
+              <span class="mb-price-big">189</span>
+              <span class="mb-price-pre">,90</span>
+            </div>
+            <div class="mb-installment">em até 12x no cartão</div>
+            <div style="border-top:1px solid var(--c-outline);padding-top:5px;margin-top:5px;">
+              <div class="mb-stock-row">
+                <span style="color:var(--c-error);font-size:7px;"><i class="ti ti-alert-triangle" style="font-size:8px;" aria-hidden="true"></i> Restam 23 unidades</span>
+                <span style="color:var(--c-text-muted);">85%</span>
+              </div>
+              <div class="mb-stock-bar"><div class="mb-stock-fill"></div></div>
+            </div>
+          </div>
+
+          <!-- Checkout -->
+          <div class="mb-checkout">
+            <div class="mb-checkout-label">Escolha onde comprar</div>
+            <div class="btn-primary" style="display:flex;align-items:center;justify-content:center;gap:5px;font-size:9px;padding:8px;"><i class="ti ti-shopping-cart" style="font-size:11px;" aria-hidden="true"></i> Site Oficial</div>
+            <div class="mb-btn-row">
+              <div class="mb-btn-shopee">SHOPEE<br><span style="font-size:7px;color:var(--c-primary);font-weight:400;text-transform:none;">Frete Grátis</span></div>
+              <div class="mb-btn-meli">MERCADO LIVRE<br><span style="font-size:7px;color:var(--c-primary);font-weight:400;text-transform:none;">Chega Amanhã</span></div>
+            </div>
+          </div>
+
+          <!-- FAB -->
+          <div class="mb-fab" style="display:flex;align-items:center;justify-content:center;gap:5px;">
+            COMPRAR COM DESCONTO <i class="ti ti-arrow-right" style="font-size:11px;" aria-hidden="true"></i>
+          </div>
+
+          <!-- Footer -->
+          <div class="mb-footer">
+            <div class="mb-footer-logo">NIKE MIND 001</div>
+            <div class="mb-footer-links">
+              <a href="#">Privacy</a>
+              <a href="#">Terms</a>
+              <a href="#">Recovery</a>
+            </div>
+            <div class="mb-footer-copy">© 2026 NIKE RECOVERY LABS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="device-label" style="font-size:9px;">375 × 812 px</div>
+    </div>
+  </div>
+</div>
