@@ -9,3 +9,8 @@ Estrutura da Landing Page - Nike Mind 001
 | Oferta + Checkout      | Card de preco com glow verde, timer, barra de estoque 85%, CTAs (Site Oficial, Shopee, Mercado Livre), selos confianca |
 | Footer                 | Logo, links, copyright, padding extra para o FAB mobile                                                                |
 | FAB Mobile             | Botao fixo amarelo "COMPRAR COM DESCONTO" — visivel so no mobile (lg:hidden)                                           |
+
+
+
+
+

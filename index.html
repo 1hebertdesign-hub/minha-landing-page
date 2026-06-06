@@ -71,31 +71,30 @@
 
 <body class="bg-brand-bg font-sans text-brand-text antialiased">
 
-  <!-- ============================================
-       ANNOUNCEMENT BAR
-  ============================================= -->
-  <div class="bg-brand-secondary text-brand-on-secondary text-center font-bold tracking-wider uppercase
-              py-2.5 px-4 text-xs sm:text-sm">
-    <span class="inline-flex items-center gap-2">
-      &#127463;&#127479; Frete GRATIS para todo o Brasil
-      <span class="hidden sm:inline opacity-60">|</span>
-      <span class="hidden sm:inline">Entrega em 24h apos PIX</span>
-      &#127463;&#127479;
-    </span>
-  </div>
-
-  <!-- ============================================
-       HEADER / NAVIGATION
-  ============================================= -->
-  <header class="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-outline">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
-      <div class="w-24"></div>
-
-      <nav class="flex items-center gap-2 sm:gap-4 whitespace-nowrap">
-        <a href="#" class="text-emerald-400 font-semibold text-[10px] sm:text-xs uppercase hover:opacity-80 transition-opacity duration-300">Loja Oficial</a>
-        <a href="#" class="text-amber-400 font-semibold text-[10px] sm:text-xs uppercase hover:opacity-80 transition-opacity duration-300">Mercado Livre</a>
-        <a href="#" class="text-emerald-400 font-semibold text-[10px] sm:text-xs uppercase hover:opacity-80 transition-opacity duration-300">Shopee</a>
-      </nav>
+  <header class="sticky top-0 z-50 bg-brand-bg border-b border-brand-outline flex flex-col">
+    <div class="bg-brand-secondary py-1.5 w-full flex items-center justify-center">
+      <span class="text-green-900 font-bold text-[10px] sm:text-xs uppercase tracking-wider flex items-center gap-2">
+        &#127463;&#127479; envio para todo o brasil &#127463;&#127479;
+      </span>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3 w-full flex items-center justify-between">
+      <a href="#" class="flex items-center">
+        <img src="meu-logo.gif" alt="Logo da Loja" class="h-9 sm:h-11 object-contain" onerror="this.style.display='none';" />
+        <span class="font-display text-white text-2xl sm:text-3xl tracking-wide drop-shadow-md normal-case ml-1 sm:ml-0 mt-1 sm:mt-2">
+          Recovery+
+        </span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-2">
+        <i class="ti ti-star-filled text-brand-secondary text-lg sm:text-xl"></i>
+        <i class="ti ti-star-filled text-brand-secondary text-lg sm:text-xl"></i>
+        <i class="ti ti-star-filled text-brand-secondary text-lg sm:text-xl"></i>
+        <i class="ti ti-star-filled text-brand-secondary text-lg sm:text-xl"></i>
+        <i class="ti ti-star-filled text-brand-secondary text-lg sm:text-xl"></i>
+      </div>
+    </div>
+    <div class="bg-[#111111] py-2.5 text-center flex flex-col items-center justify-center border-t border-brand-outline/30">
+      <span class="text-brand-text font-bold text-sm sm:text-base tracking-wide">Compre na loja oficial</span>
+      <a href="#recovery" class="text-brand-text-muted text-xs sm:text-sm underline mt-0.5 hover:text-brand-primary transition-colors">Comprar</a>
     </div>
   </header>
 
@@ -144,23 +143,36 @@
           </h1>
 
           <!-- Subtext -->
-          <p class="text-brand-text-muted text-base sm:text-lg leading-relaxed max-w-xl">
+          <p class="text-brand-text-muted text-base sm:text-lg leading-relaxed w-full">
             Tecnologia de recuperacao muscular com 42 celulas de massagem plantar. Engenharia de elite para o seu descanso.
           </p>
 
           <!-- Trust chips -->
-          <div class="flex flex-wrap gap-3 mt-2">
-            <div class="flex items-center gap-2 bg-brand-surface border border-brand-outline rounded-lg px-4 py-2.5 text-sm">
-              <i class="ti ti-truck-delivery text-brand-primary text-lg"></i>
-              <span>Entrega 24h</span>
+          <div class="flex flex-col gap-3 mt-4 w-full">
+            <div class="grid grid-cols-2 gap-3 w-full">
+              <div class="flex items-center gap-3 bg-brand-surface border border-brand-outline rounded-xl px-3 py-3 shadow-sm">
+                <i class="ti ti-truck-delivery text-brand-primary text-2xl flex-shrink-0"></i>
+                <div class="flex flex-col text-left">
+                  <span class="font-bold text-sm text-brand-text leading-tight">Entrega Rápida</span>
+                  <span class="text-[10px] text-brand-text-muted mt-0.5">24h após PIX</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-brand-surface border border-brand-outline rounded-xl px-3 py-3 shadow-sm">
+                <i class="ti ti-shield-check text-brand-primary text-2xl flex-shrink-0"></i>
+                <div class="flex flex-col text-left">
+                  <span class="font-bold text-sm text-brand-text leading-tight">Garantia</span>
+                  <span class="text-[10px] text-brand-text-muted mt-0.5">7 dias de teste</span>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center gap-2 bg-brand-surface border border-brand-outline rounded-lg px-4 py-2.5 text-sm">
-              <i class="ti ti-shield-check text-brand-primary text-lg"></i>
-              <span>Garantia 7 dias</span>
-            </div>
-            <div class="flex items-center gap-2 bg-brand-surface border border-brand-outline rounded-lg px-4 py-2.5 text-sm">
-              <i class="ti ti-star text-brand-secondary text-lg"></i>
-              <span>4.8k atletas</span>
+            <div class="flex justify-center items-center w-full bg-brand-surface/50 border border-brand-outline/50 rounded-xl px-4 py-3 mt-1">
+              <div class="flex items-center gap-4">
+                <i class="ti ti-star-filled text-brand-secondary text-2xl"></i>
+                <i class="ti ti-star-filled text-brand-secondary text-2xl"></i>
+                <i class="ti ti-star-filled text-brand-secondary text-2xl"></i>
+                <i class="ti ti-star-filled text-brand-secondary text-2xl"></i>
+                <i class="ti ti-star-filled text-brand-secondary text-2xl"></i>
+              </div>
             </div>
           </div>
         </div>
