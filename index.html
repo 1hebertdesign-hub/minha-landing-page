@@ -67,36 +67,113 @@
       },
     }
   </script>
+  <style>
+    @keyframes pulse-badge {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(244, 208, 63, 0.6); }
+      100% { transform: scale(1); }
+    }
+    .badge-copa {
+      animation: pulse-badge 2.5s infinite ease-in-out;
+    }
+
+    .badge-recovery,
+    .recovery-badge,
+    [class*="recovery"] {
+      text-align: center !important;
+      text-transform: lowercase !important;
+      font-size: 12px !important;
+      display: block !important;
+      width: 100% !important;
+    }
+
+    header .badge-recovery,
+    header .recovery-badge {
+      margin: 8px 0 !important;
+      padding: 4px 12px !important;
+    }
+
+    .video-section,
+    .hero-video,
+    .vestiario-section,
+    section:has(img[src*="placeholder"]),
+    .main-video-container {
+      margin-top: 60px !important;
+      margin-bottom: 80px !important;
+      padding-top: 40px !important;
+      padding-bottom: 60px !important;
+    }
+
+    .video-wrapper,
+    .video-container {
+      margin-top: 40px !important;
+      margin-bottom: 60px !important;
+    }
+
+    .video-section + section,
+    .video-section + div,
+    .hero-video + *,
+    main > section:nth-of-type(3) {
+      margin-top: 60px !important;
+      padding-top: 40px !important;
+    }
+
+    @media (max-width: 768px) {
+      .badge-recovery,
+      .recovery-badge {
+        font-size: 11px !important;
+      }
+
+      .video-section,
+      .hero-video {
+        margin-top: 40px !important;
+        margin-bottom: 60px !important;
+        padding-top: 20px !important;
+        padding-bottom: 40px !important;
+      }
+
+      .video-section + section,
+      .video-section + div {
+        margin-top: 40px !important;
+        padding-top: 20px !important;
+      }
+    }
+  </style>
 </head>
 
 <body class="bg-brand-bg font-sans text-brand-text antialiased">
 
-  <div class="bg-[#2a2a2a] text-[#e5e2e1] text-center py-2 px-4 text-sm font-semibold tracking-widest uppercase font-display sticky top-0 z-50 border-b border-[#3f4943]">
-    🇧🇷 Frete <span class="text-[#e7c433]">GRÁTIS</span> para todo o Brasil &nbsp;|&nbsp; Entrega em <span class="text-[#e7c433]">24h</span> após PIX
-  </div>
-
   <header class="sticky top-0 z-50 bg-brand-bg border-b border-brand-outline">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2 flex items-center justify-between">
-      <a href="#" class="block">
-        <img src="meu-logo.gif" alt="Logo da Loja" class="h-16 sm:h-24 object-contain" onerror="this.style.display='none';" />
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-1.5 flex items-center justify-between">
+      <a href="#" class="block mt-1 sm:mt-1.5">
+        <img src="meu-logo.gif" alt="Logo da Loja" class="h-12 sm:h-14 object-contain" onerror="this.style.display='none';" />
       </a>
-      <span class="font-display text-white text-3xl sm:text-5xl tracking-wide drop-shadow-md normal-case">
-        Recovery+
+      <span class="font-display text-white text-xl sm:text-2xl tracking-wide drop-shadow-md normal-case flex items-center gap-1">
+        <span class="text-xs sm:text-sm -mt-1">🇧🇷</span>Recovery+
       </span>
     </div>
-    <div class="bg-[#131313] py-2.5 text-center flex flex-col items-center justify-center border-t border-brand-outline/30">
-      <span class="text-brand-text font-bold text-sm sm:text-base tracking-wide">Compre na loja oficial</span>
-      <a href="#recovery" class="text-brand-text-muted text-xs sm:text-sm underline mt-0.5 hover:text-brand-primary transition-colors">Comprar</a>
+    <div class="bg-[#e7c433] py-1 flex flex-row items-center justify-center gap-2 border-t border-brand-outline/30">
+      <span class="text-[#003824] font-bold text-[11px] sm:text-xs tracking-wide">Compre na loja oficial</span>
+      <a href="#recovery" class="text-[#003824] font-black text-[11px] sm:text-xs underline hover:text-green-950 transition-colors">Comprar</a>
     </div>
   </header>
 
   <!-- ============================================
        MEDIA SECTION — Video do Produto
   ============================================= -->
-  <section class="h-[450px] sm:h-[550px] lg:h-[650px] w-full relative overflow-hidden bg-black -mb-1">
+  <section class="h-[500px] sm:h-[650px] lg:h-[800px] relative w-full overflow-hidden bg-black">
+    <div class="absolute top-4 sm:top-6 left-4 sm:left-6 z-20">
+      <span class="badge-copa inline-flex items-center gap-2 bg-gradient-to-br from-[#f4d03f] to-[#f1c40f] text-[#0a6847] font-extrabold text-[12px] sm:text-[14px] tracking-wide uppercase px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border-2 border-white shadow-[0_4px_15px_rgba(244,208,63,0.4),0_2px_4px_rgba(0,0,0,0.1)] cursor-default">
+        ⚽ Lançamento Copa 2026
+      </span>
+    </div>
     <video src="vdeo 1.mp4" autoplay loop muted playsinline class="object-cover w-full h-full"></video>
-    <div class="absolute -bottom-2 left-0 w-full h-48 bg-gradient-to-t from-brand-bg via-brand-bg/80 to-transparent z-10 pointer-events-none"></div>
   </section>
+
+  <!-- Legenda do Produto -->
+  <div class="w-full bg-brand-bg px-6 sm:px-8 lg:px-12 py-4 border-b border-brand-outline/20">
+    <h2 class="font-display text-brand-text-muted text-lg sm:text-xl uppercase tracking-widest">Recovery+</h2>
+  </div>
 
   <!-- ============================================
        PRODUCT CONTENT SECTION — Bloco Alta Demanda
