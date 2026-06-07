@@ -162,13 +162,29 @@
        MEDIA SECTION — Video do Produto
   ============================================= -->
   <section class="h-[500px] sm:h-[650px] lg:h-[800px] relative w-full overflow-hidden bg-black">
-    <div class="absolute top-4 sm:top-6 left-4 sm:left-6 z-20">
+    <div class="absolute top-8 sm:top-10 left-4 sm:left-6 z-20">
         <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1.5 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
           ⚽ Lançamento Copa 2026
         </span>
     </div>
-    <video src="vdeo 1.mp4" autoplay loop muted playsinline class="object-cover w-full h-full"></video>
-    <button id="video-progress-btn" class="absolute bottom-5 right-5 z-30 w-12 h-12 cursor-pointer" aria-label="Pausar/Reproduzir vídeo">
+    <div class="absolute top-2 sm:top-4 left-0 w-full px-4 sm:px-6 z-30 flex gap-1 sm:gap-2">
+      <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden backdrop-blur-sm"><div class="progress-bar h-full bg-white w-0 origin-left"></div></div>
+      <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden backdrop-blur-sm"><div class="progress-bar h-full bg-white w-0 origin-left"></div></div>
+      <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden backdrop-blur-sm"><div class="progress-bar h-full bg-white w-0 origin-left"></div></div>
+      <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden backdrop-blur-sm"><div class="progress-bar h-full bg-white w-0 origin-left"></div></div>
+      <div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden backdrop-blur-sm"><div class="progress-bar h-full bg-white w-0 origin-left"></div></div>
+    </div>
+    <div id="carousel-track" class="relative w-full h-full">
+      <video src="1.mp4" autoplay muted playsinline loop class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 z-10"></video>
+      <img src="2.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 2">
+      <img src="3.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 3">
+      <img src="4.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 4">
+      <img src="5.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 5">
+    </div>
+    
+    <!-- Fade esmanhecido na base do vídeo corrigido -->
+    <div class="absolute bottom-0 left-0 w-full h-28 md:h-40 bg-gradient-to-t from-black to-black/0 z-20 pointer-events-none"></div>
+    <button id="play-pause-btn" class="absolute bottom-5 right-5 z-30 w-10 h-10 cursor-pointer" aria-label="Pausar/Reproduzir">
       <svg class="w-full h-full" viewBox="0 0 48 48">
         <circle cx="24" cy="24" r="22" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
         <circle id="video-progress-circle" cx="24" cy="24" r="22" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" transform="rotate(-90 24 24)"/>
@@ -181,16 +197,13 @@
     </button>
   </section>
 
-  <!-- Legenda do Produto -->
-  <div class="w-full px-6 sm:px-8 lg:px-12 py-4 border-b border-brand-outline/20" style="background: #000000;">
-    <h2 class="font-display text-brand-text-muted tracking-widest" style="text-align: center; display: block; width: 100%; text-transform: lowercase; font-size: 15px;">Recovery+</h2>
-  </div>
+
 
   <!-- ============================================
        PRODUCT CONTENT SECTION — Bloco Alta Demanda
   ============================================= -->
-  <section class="relative" style="background: #000000;">
-    <div class="max-w-xl mx-auto px-6 py-8 flex flex-col items-start text-left w-full gap-6 relative z-10">
+  <section class="relative -mt-1 z-40" style="background: #000000;">
+    <div class="max-w-xl mx-auto px-6 py-8 flex flex-col items-start text-left w-full gap-6 relative">
 
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 w-fit
@@ -209,8 +222,8 @@
       </h1>
 
       <!-- Subtext -->
-      <p class="text-brand-text-muted text-base sm:text-lg leading-relaxed w-full">
-        Tecnologia de recuperacao muscular com 42 celulas de massagem plantar. Engenharia de elite para o seu descanso.
+      <p class="text-brand-text-muted text-[15px] sm:text-lg leading-snug sm:leading-relaxed w-full">
+        Tecnologia de recuperação muscular com <strong class="text-white font-bold">42 células de massagem plantar</strong>. Envio imediato para todo Brasil em até 24h.
       </p>
 
       <!-- Trust chips -->
@@ -488,25 +501,78 @@
   </footer>
 
   <script>
-    (function() {
-      var video = document.querySelector('video');
-      var btn = document.getElementById('video-progress-btn');
-      var circle = document.getElementById('video-progress-circle');
-      var pauseIcon = document.getElementById('video-pause-icon');
-      var playIcon = document.getElementById('video-play-icon');
-      var circumference = 2 * Math.PI * 22;
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.carousel-item');
+    const progressBars = document.querySelectorAll('.progress-bar');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const throbberCircle = document.getElementById('video-progress-circle');
+    const pauseIcon = document.getElementById('video-pause-icon');
+    const playIcon = document.getElementById('video-play-icon');
+    const circumference = 138.23;
+    
+    let currentIndex = 0;
+    let isPaused = false;
+    let progress = 0;
+    let animationFrame;
+    let lastTime = 0;
+    let currentDuration = 5000;
 
-      circle.style.strokeDasharray = circumference;
-      circle.style.strokeDashoffset = circumference;
+    function startCarousel(timestamp) {
+      if (!lastTime) lastTime = timestamp;
+      const deltaTime = timestamp - lastTime;
+      lastTime = timestamp;
 
-      function updateProgress() {
-        if (!video.duration) return;
-        var progress = video.currentTime / video.duration;
-        circle.style.strokeDashoffset = circumference - (progress * circumference);
+      if (!isPaused) {
+        progress += (deltaTime / currentDuration) * 100;
+        
+        if (progress >= 100) {
+          progress = 100;
+          progressBars[currentIndex].style.width = '100%';
+          goToNext();
+        } else {
+          progressBars[currentIndex].style.width = `${progress}%`;
+        }
+        if (throbberCircle) {
+          throbberCircle.style.strokeDashoffset = circumference - (progress / 100 * circumference);
+        }
+      }
+      animationFrame = requestAnimationFrame(startCarousel);
+    }
+
+    function goToNext() {
+      items[currentIndex].classList.remove('opacity-100', 'z-10');
+      items[currentIndex].classList.add('opacity-0', 'z-0');
+      if(items[currentIndex].tagName === 'VIDEO') items[currentIndex].pause();
+
+      currentIndex = (currentIndex + 1) % items.length;
+
+      if (currentIndex === 0) {
+        progressBars.forEach(bar => bar.style.width = '0%');
       }
 
-      function updateIcons() {
-        if (video.paused) {
+      items[currentIndex].classList.remove('opacity-0', 'z-0');
+      items[currentIndex].classList.add('opacity-100', 'z-10');
+      
+      progress = 0;
+      
+      if(items[currentIndex].tagName === 'VIDEO') {
+        const vid = items[currentIndex];
+        vid.currentTime = 0;
+        vid.play();
+        currentDuration = (vid.duration && !isNaN(vid.duration)) ? vid.duration * 1000 : 8000;
+      } else {
+        currentDuration = 5000;
+      }
+    }
+
+    playPauseBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      isPaused = !isPaused;
+      if (items[currentIndex].tagName === 'VIDEO') {
+        isPaused ? items[currentIndex].pause() : items[currentIndex].play();
+      }
+      if (pauseIcon && playIcon) {
+        if (isPaused) {
           pauseIcon.style.display = 'none';
           playIcon.style.display = 'block';
         } else {
@@ -514,22 +580,16 @@
           playIcon.style.display = 'none';
         }
       }
+    });
 
-      video.addEventListener('timeupdate', updateProgress);
-      video.addEventListener('play', updateIcons);
-      video.addEventListener('pause', updateIcons);
-
-      btn.addEventListener('click', function() {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-        updateIcons();
+    if(items[0].tagName === 'VIDEO') {
+      items[0].addEventListener('loadedmetadata', () => {
+        currentDuration = items[0].duration * 1000;
       });
+    }
 
-      updateIcons();
-    })();
+    animationFrame = requestAnimationFrame(startCarousel);
+  });
   </script>
 
 </body>
