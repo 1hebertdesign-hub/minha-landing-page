@@ -163,23 +163,33 @@
   ============================================= -->
   <section class="h-[500px] sm:h-[650px] lg:h-[800px] relative w-full overflow-hidden bg-black">
     <div class="absolute top-4 sm:top-6 left-4 sm:left-6 z-20">
-      <span class="badge-copa inline-flex items-center gap-2 bg-gradient-to-br from-[#f4d03f] to-[#f1c40f] text-[#0a6847] font-extrabold text-[12px] sm:text-[14px] tracking-wide uppercase px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border-2 border-white shadow-[0_4px_15px_rgba(244,208,63,0.4),0_2px_4px_rgba(0,0,0,0.1)] cursor-default">
-        ⚽ Lançamento Copa 2026
-      </span>
+        <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1.5 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
+          ⚽ Lançamento Copa 2026
+        </span>
     </div>
     <video src="vdeo 1.mp4" autoplay loop muted playsinline class="object-cover w-full h-full"></video>
+    <button id="video-progress-btn" class="absolute bottom-5 right-5 z-30 w-12 h-12 cursor-pointer" aria-label="Pausar/Reproduzir vídeo">
+      <svg class="w-full h-full" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="22" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+        <circle id="video-progress-circle" cx="24" cy="24" r="22" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" transform="rotate(-90 24 24)"/>
+        <g id="video-pause-icon">
+          <rect x="18" y="17" width="4" height="14" rx="1" fill="#ffffff"/>
+          <rect x="26" y="17" width="4" height="14" rx="1" fill="#ffffff"/>
+        </g>
+        <polygon id="video-play-icon" points="20,16 20,32 34,24" fill="#ffffff" style="display:none"/>
+      </svg>
+    </button>
   </section>
 
   <!-- Legenda do Produto -->
-  <div class="w-full bg-brand-bg px-6 sm:px-8 lg:px-12 py-4 border-b border-brand-outline/20">
-    <h2 class="font-display text-brand-text-muted text-lg sm:text-xl uppercase tracking-widest">Recovery+</h2>
+  <div class="w-full px-6 sm:px-8 lg:px-12 py-4 border-b border-brand-outline/20" style="background: #000000;">
+    <h2 class="font-display text-brand-text-muted tracking-widest" style="text-align: center; display: block; width: 100%; text-transform: lowercase; font-size: 15px;">Recovery+</h2>
   </div>
 
   <!-- ============================================
        PRODUCT CONTENT SECTION — Bloco Alta Demanda
   ============================================= -->
-  <section class="bg-brand-bg relative">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[400px] bg-[radial-gradient(circle_at_top,rgba(45,219,222,0.12)_0%,transparent_70%)] pointer-events-none z-0"></div>
+  <section class="relative" style="background: #000000;">
     <div class="max-w-xl mx-auto px-6 py-8 flex flex-col items-start text-left w-full gap-6 relative z-10">
 
       <!-- Badge -->
@@ -476,6 +486,51 @@
     <!-- Bottom padding for mobile FAB -->
     <div class="h-16 lg:h-0"></div>
   </footer>
+
+  <script>
+    (function() {
+      var video = document.querySelector('video');
+      var btn = document.getElementById('video-progress-btn');
+      var circle = document.getElementById('video-progress-circle');
+      var pauseIcon = document.getElementById('video-pause-icon');
+      var playIcon = document.getElementById('video-play-icon');
+      var circumference = 2 * Math.PI * 22;
+
+      circle.style.strokeDasharray = circumference;
+      circle.style.strokeDashoffset = circumference;
+
+      function updateProgress() {
+        if (!video.duration) return;
+        var progress = video.currentTime / video.duration;
+        circle.style.strokeDashoffset = circumference - (progress * circumference);
+      }
+
+      function updateIcons() {
+        if (video.paused) {
+          pauseIcon.style.display = 'none';
+          playIcon.style.display = 'block';
+        } else {
+          pauseIcon.style.display = 'block';
+          playIcon.style.display = 'none';
+        }
+      }
+
+      video.addEventListener('timeupdate', updateProgress);
+      video.addEventListener('play', updateIcons);
+      video.addEventListener('pause', updateIcons);
+
+      btn.addEventListener('click', function() {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+        updateIcons();
+      });
+
+      updateIcons();
+    })();
+  </script>
 
 </body>
 </html>
