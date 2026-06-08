@@ -285,68 +285,126 @@
             Durante a Copa 2026, cameras capturam um detalhe pouco notado: nos momentos de descanso, atletas de elite trocam os chuteiros por este chinelo verde-azulado com bolhas salientes...
           </p>
 
-          <!-- Image grid placeholders -->
-          <div class="grid grid-cols-2 gap-4 mt-2">
-            <div class="h-32 sm:h-40 bg-brand-surface-high rounded-card border border-brand-outline relative overflow-hidden group">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <span class="absolute bottom-3 left-3 text-xs font-medium text-brand-primary bg-black/70 px-2 py-1 rounded-md">
-                Vestiario
-              </span>
-            </div>
-            <div class="h-32 sm:h-40 bg-brand-surface-high rounded-card border border-brand-outline relative overflow-hidden group">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <span class="absolute bottom-3 left-3 text-xs font-medium text-brand-primary bg-black/70 px-2 py-1 rounded-md">
-                Detalhe Sola
-              </span>
-            </div>
+          <!-- Secondary Carousel -->
+          <div class="-mx-6 sm:-mx-8 lg:mx-0 mt-8 lg:mt-6 mb-2">
+            <section class="h-[500px] sm:h-[650px] lg:h-[800px] relative w-full overflow-hidden lg:rounded-card">
+              <div class="relative w-full h-full">
+                <!-- Item 1 -->
+                <div class="secondary-carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100 z-10 group">
+                  <img src="Exclusivo A1.png" class="w-full h-full object-cover" alt="Você em Casa" onerror="this.style.display='none';">
+                  
+                  <!-- Esmaecimentos -->
+                  <div class="absolute top-0 left-0 w-full h-28 md:h-40 bg-gradient-to-b from-[#131313] to-[#131313]/0 z-20 pointer-events-none"></div>
+                  
+                  <div class="absolute top-10 sm:top-12 left-4 sm:left-6 z-30">
+                    <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
+                      ⚽ Você em Casa
+                    </span>
+                  </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="secondary-carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 z-0 group">
+                  <video id="secondary-video" src="Exclusivo A2.mp4" autoplay muted playsinline loop class="w-full h-full object-cover"></video>
+                  
+                  <!-- Esmaecimentos -->
+                  <div class="absolute top-0 left-0 w-full h-28 md:h-40 bg-gradient-to-b from-[#131313] to-[#131313]/0 z-20 pointer-events-none"></div>
+                  
+                  <div class="absolute top-10 sm:top-12 left-4 sm:left-6 z-30">
+                    <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
+                      ⚽ Os Atletas na Copa
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pause Button -->
+              <button id="sec-play-pause-btn" class="absolute bottom-5 right-5 z-30 w-10 h-10 cursor-pointer" aria-label="Pausar/Reproduzir">
+                <svg class="w-full h-full" viewBox="0 0 48 48">
+                  <circle cx="24" cy="24" r="22" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+                  <circle id="sec-video-progress-circle" cx="24" cy="24" r="22" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" transform="rotate(-90 24 24)"/>
+                  <g id="sec-video-pause-icon">
+                    <rect x="18" y="17" width="4" height="14" rx="1" fill="#ffffff"/>
+                    <rect x="26" y="17" width="4" height="14" rx="1" fill="#ffffff"/>
+                  </g>
+                  <polygon id="sec-video-play-icon" points="20,16 20,32 34,24" fill="#ffffff" style="display:none"/>
+                </svg>
+              </button>
+            </section>
           </div>
         </div>
 
         <!-- Right Column: Tecnologia -->
-        <div id="tecnologia" class="flex flex-col gap-6 lg:border-l lg:border-brand-outline lg:pl-16">
-          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary">
-            Tecnologia
-          </span>
+        <div id="tecnologia" class="relative flex flex-col lg:border-l lg:border-brand-outline lg:pl-16">
+          <!-- Background Gradient & Particles -->
+          <div class="absolute inset-0 -mx-6 sm:-mx-8 lg:mx-0 bg-gradient-to-b from-[#131313] via-[#0a4d34] to-[#131313] pointer-events-none z-0"></div>
+          <canvas id="tech-particles" class="absolute inset-0 -mx-6 sm:-mx-8 lg:mx-0 w-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] lg:w-full h-full pointer-events-none z-0 opacity-60"></canvas>
+          
+          <div class="relative z-10 flex flex-col gap-6 w-full">
+            <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary pt-2 lg:pt-0">
+              Tecnologia
+            </span>
           <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase leading-none tracking-wide">
             42 Celulas de <span class="text-brand-secondary">Massagem</span>
           </h2>
 
           <div class="flex flex-col gap-5 mt-2">
             <!-- Feature 1: Distribuicao de Pressao -->
-            <div class="flex items-start gap-4 p-5 bg-brand-surface border border-brand-outline rounded-card
-                        hover:border-brand-primary/30 hover:shadow-glow transition-all duration-500">
-              <div class="w-12 h-12 rounded-full bg-brand-primary/15 flex items-center justify-center flex-shrink-0">
-                <i class="ti ti-bolt text-brand-primary text-xl"></i>
+            <div class="relative overflow-hidden rounded-card p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #86d7ae 100%); filter: blur(4px);"></div>
               </div>
-              <div>
-                <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Distribuicao de Pressao</h4>
-                <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Nodulos estrategicamente posicionados que aliviam a tensao miofascial.</p>
+              
+              <!-- Inner Card -->
+              <div class="relative z-10 w-full h-full bg-brand-surface rounded-[15px] p-5 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-brand-primary/15 flex items-center justify-center flex-shrink-0">
+                  <i class="ti ti-bolt text-brand-primary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Distribuicao de Pressao</h4>
+                  <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Nodulos estrategicamente posicionados que aliviam a tensao miofascial.</p>
+                </div>
               </div>
             </div>
 
             <!-- Feature 2: Amortecimento Adaptativo -->
-            <div class="flex items-start gap-4 p-5 bg-brand-surface border border-brand-outline rounded-card
-                        hover:border-brand-tertiary/30 hover:shadow-glow transition-all duration-500">
-              <div class="w-12 h-12 rounded-full bg-brand-tertiary/15 flex items-center justify-center flex-shrink-0">
-                <i class="ti ti-wave-sine text-brand-tertiary text-xl"></i>
+            <div class="relative overflow-hidden rounded-card p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #2ddbde 100%); filter: blur(4px);"></div>
               </div>
-              <div>
-                <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Amortecimento Adaptativo</h4>
-                <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Espuma de dupla densidade que absorve impacto e retorna energia.</p>
+              
+              <!-- Inner Card -->
+              <div class="relative z-10 w-full h-full bg-brand-surface rounded-[15px] p-5 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-brand-tertiary/15 flex items-center justify-center flex-shrink-0">
+                  <i class="ti ti-wave-sine text-brand-tertiary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Amortecimento Adaptativo</h4>
+                  <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Espuma de dupla densidade que absorve impacto e retorna energia.</p>
+                </div>
               </div>
             </div>
 
             <!-- Feature 3: Drenagem Termica -->
-            <div class="flex items-start gap-4 p-5 bg-brand-surface border border-brand-outline rounded-card
-                        hover:border-brand-secondary/30 hover:shadow-glow-yellow transition-all duration-500">
-              <div class="w-12 h-12 rounded-full bg-brand-secondary/15 flex items-center justify-center flex-shrink-0">
-                <i class="ti ti-temperature text-brand-secondary text-xl"></i>
+            <div class="relative overflow-hidden rounded-card p-[1px] bg-brand-outline hover:shadow-glow-yellow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #e7c433 100%); filter: blur(4px);"></div>
               </div>
-              <div>
-                <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Drenagem Termica</h4>
-                <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Canais de ventilacao reduzem temperatura da sola em ate 2 graus.</p>
+              
+              <!-- Inner Card -->
+              <div class="relative z-10 w-full h-full bg-brand-surface rounded-[15px] p-5 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-brand-secondary/15 flex items-center justify-center flex-shrink-0">
+                  <i class="ti ti-temperature text-brand-secondary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Drenagem Termica</h4>
+                  <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Canais de ventilacao reduzem temperatura da sola em ate 2 graus.</p>
+                </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -595,8 +653,152 @@
     }
 
     animationFrame = requestAnimationFrame(startCarousel);
+
+    // Secondary Carousel Logic
+    const secItems = document.querySelectorAll('.secondary-carousel-item');
+    const secPlayBtn = document.getElementById('sec-play-pause-btn');
+    const secCircle = document.getElementById('sec-video-progress-circle');
+    const secPauseIcon = document.getElementById('sec-video-pause-icon');
+    const secPlayIcon = document.getElementById('sec-video-play-icon');
+    
+    if (secItems.length > 0) {
+      let secIndex = 0;
+      let secPaused = false;
+      let secProgress = 0;
+      let secLastTime = 0;
+      let secDuration = 5000;
+      let secAnimFrame;
+      const secVideo = document.getElementById('secondary-video');
+
+      if (secVideo) {
+        secVideo.addEventListener('loadedmetadata', () => {
+          if (secIndex === 1) secDuration = secVideo.duration * 1000;
+        });
+      }
+
+      function startSecCarousel(timestamp) {
+        if (!secLastTime) secLastTime = timestamp;
+        const delta = timestamp - secLastTime;
+        secLastTime = timestamp;
+
+        if (!secPaused) {
+          secProgress += (delta / secDuration) * 100;
+          if (secProgress >= 100) {
+            secProgress = 100;
+            goNextSec();
+          }
+          if (secCircle) {
+            secCircle.style.strokeDashoffset = circumference - (secProgress / 100 * circumference);
+          }
+        }
+        secAnimFrame = requestAnimationFrame(startSecCarousel);
+      }
+
+      function goNextSec() {
+        secItems[secIndex].classList.remove('opacity-100', 'z-10');
+        secItems[secIndex].classList.add('opacity-0', 'z-0');
+        const currVid = secItems[secIndex].querySelector('video');
+        if (currVid) currVid.pause();
+
+        secIndex = (secIndex + 1) % secItems.length;
+
+        secItems[secIndex].classList.remove('opacity-0', 'z-0');
+        secItems[secIndex].classList.add('opacity-100', 'z-10');
+        
+        secProgress = 0;
+        
+        const nextVid = secItems[secIndex].querySelector('video');
+        if (nextVid) {
+          nextVid.currentTime = 0;
+          nextVid.play();
+          secDuration = (nextVid.duration && !isNaN(nextVid.duration)) ? nextVid.duration * 1000 : 13000;
+        } else {
+          secDuration = 5000;
+        }
+      }
+
+      if (secPlayBtn) {
+        secPlayBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          secPaused = !secPaused;
+          const currVid = secItems[secIndex].querySelector('video');
+          if (currVid) {
+            secPaused ? currVid.pause() : currVid.play();
+          }
+          if (secPauseIcon && secPlayIcon) {
+            secPauseIcon.style.display = secPaused ? 'none' : 'block';
+            secPlayIcon.style.display = secPaused ? 'block' : 'none';
+          }
+        });
+      }
+
+      secAnimFrame = requestAnimationFrame(startSecCarousel);
+    }
   });
   </script>
+  <script>
+    // Particle Animation for Tecnologia Section
+    const canvas = document.getElementById('tech-particles');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particlesArray = [];
+      const numberOfParticles = window.innerWidth < 768 ? 30 : 50;
 
+      function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedY = Math.random() * 0.5 + 0.1;
+          this.speedX = (Math.random() - 0.5) * 0.2;
+          this.opacity = Math.random() * 0.5 + 0.1;
+        }
+        update() {
+          this.y -= this.speedY;
+          this.x += this.speedX;
+          if (this.y < 0) {
+            this.y = canvas.height;
+            this.x = Math.random() * canvas.width;
+          }
+        }
+        draw() {
+          ctx.fillStyle = `rgba(134, 215, 174, ${this.opacity})`; // brand-primary color
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particlesArray = [];
+        for (let i = 0; i < numberOfParticles; i++) {
+          particlesArray.push(new Particle());
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+        }
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles();
+      });
+
+      resizeCanvas();
+      initParticles();
+      animateParticles();
+    }
+  </script>
 </body>
 </html>
