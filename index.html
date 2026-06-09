@@ -800,59 +800,187 @@
 <section class="relative bg-section-gradient py-16 sm:py-20 lg:py-24">
   <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-tertiary/20 to-transparent"></div>
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-    <div class="text-center mb-12">
+    <div class="text-center mb-10">
       <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-tertiary">Avaliações Verificadas</span>
       <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mt-3">O que nossos clientes dizem</h2>
     </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
-        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
-        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
-          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+
+    <div class="max-w-3xl mx-auto bg-brand-surface border border-brand-outline rounded-card overflow-hidden">
+      <!-- Bloco de métricas gerais -->
+      <div class="p-6 sm:p-8 border-b border-brand-outline/60">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="font-display text-4xl text-brand-text leading-none">4.8</span>
+              <i class="ti ti-star-filled text-brand-secondary text-2xl"></i>
+            </div>
+            <p class="text-sm text-brand-text-muted mt-2">Avaliações do produto <span class="text-brand-text font-semibold">(156)</span></p>
+          </div>
+          <a href="#" class="flex items-center gap-1 text-sm text-brand-tertiary font-semibold hover:translate-x-0.5 transition-transform">
+            Ver mais <i class="ti ti-chevron-right"></i>
+          </a>
         </div>
-        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Uso depois do futevôlei na praia, cara. Outro nível de recuperação. Meu tornozelo parou de inchar depois dos jogos."</p>
-        <div class="text-brand-tertiary font-bold text-sm">Rafael M. — São Paulo, SP</div>
+
+        <!-- Tag de destaque -->
+        <div class="inline-flex items-center gap-2 mt-5 bg-brand-secondary/15 border border-brand-secondary/30 rounded-full px-4 py-2">
+          <i class="ti ti-message-circle-2-filled text-brand-secondary text-base"></i>
+          <span class="text-xs sm:text-sm text-brand-secondary font-semibold">Frequentemente avaliado como conforto bom</span>
+        </div>
+
+        <!-- Estatísticas de caimento -->
+        <div class="mt-6">
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-text-muted mb-3">Caimento do tamanho</p>
+          <div class="space-y-2.5">
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-xs text-brand-text-muted shrink-0">Pequeno</span>
+              <div class="flex-1 h-2 bg-brand-outline/60 rounded-full overflow-hidden">
+                <div class="h-full bg-brand-tertiary/60 rounded-full" style="width: 3%"></div>
+              </div>
+              <span class="w-10 text-xs text-brand-text-muted font-semibold text-right shrink-0">3%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-xs text-brand-text font-semibold shrink-0">Na medida</span>
+              <div class="flex-1 h-2 bg-brand-outline/60 rounded-full overflow-hidden">
+                <div class="h-full bg-brand-tertiary rounded-full shadow-glow/30" style="width: 86%"></div>
+              </div>
+              <span class="w-10 text-xs text-brand-tertiary font-bold text-right shrink-0">86%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-xs text-brand-text-muted shrink-0">Grande</span>
+              <div class="flex-1 h-2 bg-brand-outline/60 rounded-full overflow-hidden">
+                <div class="h-full bg-brand-tertiary/60 rounded-full" style="width: 11%"></div>
+              </div>
+              <span class="w-10 text-xs text-brand-text-muted font-semibold text-right shrink-0">11%</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
-        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
-        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
-          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
-        </div>
-        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Comprei pra meu marido que joga futebol no fim de semana. Ele não tira mais do pé. Chegou em menos de 24h aqui em Curitiba."</p>
-        <div class="text-brand-tertiary font-bold text-sm">Camila R. — Curitiba, PR</div>
+
+      <!-- Lista de avaliações -->
+      <div class="divide-y divide-brand-outline/60">
+
+        <!-- Avaliação 1 -->
+        <article class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-brand-surface-high border border-brand-outline flex items-center justify-center shrink-0">
+                <i class="ti ti-user text-brand-text-muted text-lg"></i>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-brand-text">Rafael M.</p>
+                <p class="text-xs text-brand-text-muted">São Paulo, SP</p>
+              </div>
+            </div>
+            <button class="flex items-center gap-1.5 text-xs text-brand-text-muted hover:text-brand-tertiary border border-brand-outline hover:border-brand-tertiary/40 rounded-full px-3 py-1.5 transition-colors">
+              <i class="ti ti-thumb-up"></i> Útil (28)
+            </button>
+          </div>
+          <div class="flex items-center gap-1 text-brand-secondary text-sm mb-2">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="text-xs text-brand-text-muted mb-3">Variação: <span class="text-brand-text">cinza, BR42</span></p>
+          <p class="text-sm text-brand-text leading-relaxed mb-4">Uso depois do futevôlei na praia, cara. Outro nível de recuperação. Meu tornozelo parou de inchar depois dos jogos. As bolinhas na sola realmente fazem a diferença, recomendo demais.</p>
+          <div class="grid grid-cols-4 sm:grid-cols-5 gap-2">
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center relative">
+              <i class="ti ti-photo text-brand-text-muted"></i>
+              <span class="absolute inset-0 flex items-center justify-center bg-brand-bg/60 rounded-md">
+                <i class="ti ti-player-play-filled text-brand-text text-xl"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Avaliação 2 -->
+        <article class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-brand-surface-high border border-brand-outline flex items-center justify-center shrink-0">
+                <i class="ti ti-user text-brand-text-muted text-lg"></i>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-brand-text">Camila R.</p>
+                <p class="text-xs text-brand-text-muted">Curitiba, PR</p>
+              </div>
+            </div>
+            <button class="flex items-center gap-1.5 text-xs text-brand-text-muted hover:text-brand-tertiary border border-brand-outline hover:border-brand-tertiary/40 rounded-full px-3 py-1.5 transition-colors">
+              <i class="ti ti-thumb-up"></i> Útil (41)
+            </button>
+          </div>
+          <div class="flex items-center gap-1 text-brand-secondary text-sm mb-2">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="text-xs text-brand-text-muted mb-3">Variação: <span class="text-brand-text">preto, BR41</span></p>
+          <p class="text-sm text-brand-text leading-relaxed mb-4">Comprei pra meu marido que joga futebol no fim de semana. Ele não tira mais do pé. Chegou em menos de 24h aqui em Curitiba. Veio bem embalado e a qualidade é excelente.</p>
+          <div class="grid grid-cols-4 sm:grid-cols-5 gap-2">
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+          </div>
+        </article>
+
+        <!-- Avaliação 3 -->
+        <article class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-brand-surface-high border border-brand-outline flex items-center justify-center shrink-0">
+                <i class="ti ti-user text-brand-text-muted text-lg"></i>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-brand-text">Diego F.</p>
+                <p class="text-xs text-brand-text-muted">Belo Horizonte, MG</p>
+              </div>
+            </div>
+            <button class="flex items-center gap-1.5 text-xs text-brand-text-muted hover:text-brand-tertiary border border-brand-outline hover:border-brand-tertiary/40 rounded-full px-3 py-1.5 transition-colors">
+              <i class="ti ti-thumb-up"></i> Útil (67)
+            </button>
+          </div>
+          <div class="flex items-center gap-1 text-brand-secondary text-sm mb-2">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="text-xs text-brand-text-muted mb-3">Variação: <span class="text-brand-text">verde, BR43</span></p>
+          <p class="text-sm text-brand-text leading-relaxed mb-4">Sou personal trainer e recomendo pra todos meus alunos. As bolinhas na sola fazem diferença real na recuperação pós-treino. Já é meu segundo par, dura muito.</p>
+          <div class="grid grid-cols-4 sm:grid-cols-5 gap-2">
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+          </div>
+        </article>
+
+        <!-- Avaliação 4 -->
+        <article class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-brand-surface-high border border-brand-outline flex items-center justify-center shrink-0">
+                <i class="ti ti-user text-brand-text-muted text-lg"></i>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-brand-text">Jéssica L.</p>
+                <p class="text-xs text-brand-text-muted">Recife, PE</p>
+              </div>
+            </div>
+            <button class="flex items-center gap-1.5 text-xs text-brand-text-muted hover:text-brand-tertiary border border-brand-outline hover:border-brand-tertiary/40 rounded-full px-3 py-1.5 transition-colors">
+              <i class="ti ti-thumb-up"></i> Útil (19)
+            </button>
+          </div>
+          <div class="flex items-center gap-1 text-brand-secondary text-sm mb-2">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="text-xs text-brand-text-muted mb-3">Variação: <span class="text-brand-text">cinza, BR37</span></p>
+          <p class="text-sm text-brand-text leading-relaxed mb-4">Trabalho de pé o dia todo como enfermeira. Quando chego em casa coloco esse chinelo e parece que saiu todo o cansaço do pé. Vale cada centavo.</p>
+          <div class="grid grid-cols-4 sm:grid-cols-5 gap-2">
+            <div class="aspect-square rounded-md bg-brand-surface-high border border-brand-outline flex items-center justify-center"><i class="ti ti-photo text-brand-text-muted"></i></div>
+          </div>
+        </article>
+
       </div>
-      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
-        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
-        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
-          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
-        </div>
-        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Sou personal trainer e recomendo pra todos meus alunos. As bolinhas na sola fazem diferença real na recuperação pós-treino."</p>
-        <div class="text-brand-tertiary font-bold text-sm">Diego F. — Belo Horizonte, MG</div>
-      </div>
-      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
-        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
-        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
-          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
-        </div>
-        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Trabalho de pé o dia todo como enfermeira. Quando chego em casa coloco esse chinelo e parece que saiu todo o cansaço do pé."</p>
-        <div class="text-brand-tertiary font-bold text-sm">Jéssica L. — Recife, PE</div>
-      </div>
-      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
-        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
-        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
-          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
-        </div>
-        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Vi nas redes o pessoal usando na concentração e fui atrás. Vale cada centavo. Qualidade impressionante pelo preço."</p>
-        <div class="text-brand-tertiary font-bold text-sm">Thiago B. — Porto Alegre, RS</div>
-      </div>
-      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
-        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
-        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
-          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
-        </div>
-        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Comprei desconfiado mas a garantia de 7 dias me convenceu. Não devolvi não, pelo contrário, já comprei outro pra meu filho."</p>
-        <div class="text-brand-tertiary font-bold text-sm">Marcos A. — Goiânia, GO</div>
+
+      <!-- Rodapé com link de paginação -->
+      <div class="p-5 border-t border-brand-outline/60 text-center">
+        <a href="#" class="inline-flex items-center gap-1 text-sm text-brand-tertiary font-semibold hover:gap-2 transition-all">
+          Ver todas as 156 avaliações <i class="ti ti-arrow-right"></i>
+        </a>
       </div>
     </div>
   </div>
