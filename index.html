@@ -37,6 +37,60 @@
               'on-primary': '#003824',
               'on-secondary': '#221b00',
             },
+          
+            ...{
+                  "surface-dim": "#131313",
+                  "surface-bright": "#393939",
+                  "on-surface-variant": "#bec9c1",
+                  "on-tertiary-container": "#005c5e",
+                  "recovery-teal": "#2ddbde",
+                  "surface-container-lowest": "#0e0e0e",
+                  "canary-yellow": "#e7c433",
+                  "secondary-fixed": "#ffe174",
+                  "secondary-container": "#c1a100",
+                  "inverse-primary": "#116c4a",
+                  "on-secondary-fixed-variant": "#554500",
+                  "on-primary-fixed": "#002113",
+                  "error-container": "#93000a",
+                  "on-surface": "#e5e2e1",
+                  "surface-container": "#201f1f",
+                  "outline": "#89938b",
+                  "surface-container-high": "#2a2a2a",
+                  "outline-variant": "#3f4943",
+                  "on-tertiary-fixed": "#002020",
+                  "primary-fixed": "#a2f4c9",
+                  "secondary-fixed-dim": "#e7c433",
+                  "on-primary-container": "#005f40",
+                  "surface-container-low": "#1c1b1b",
+                  "error": "#ffb4ab",
+                  "deep-charcoal": "#131313",
+                  "background": "#131313",
+                  "surface-container-highest": "#353534",
+                  "primary-fixed-dim": "#86d7ae",
+                  "tertiary": "#59f8fb",
+                  "tertiary-fixed-dim": "#2edbde",
+                  "surface-tint": "#86d7ae",
+                  "on-primary": "#003824",
+                  "inverse-surface": "#e5e2e1",
+                  "on-tertiary": "#003738",
+                  "on-background": "#e5e2e1",
+                  "primary": "#a2f4c9",
+                  "on-primary-fixed-variant": "#005236",
+                  "on-tertiary-fixed-variant": "#004f51",
+                  "surface": "#131313",
+                  "on-secondary": "#3b2f00",
+                  "on-secondary-fixed": "#221b00",
+                  "inverse-on-surface": "#313030",
+                  "primary-container": "#86d7ae",
+                  "tertiary-fixed": "#5af8fb",
+                  "on-secondary-container": "#453800",
+                  "on-error-container": "#ffdad6",
+                  "surface-variant": "#353534",
+                  "secondary": "#e7c433",
+                  "athletic-green": "#86d7ae",
+                  "on-error": "#690005",
+                  "tertiary-container": "#2ddbde"
+          },
           },
           fontFamily: {
             display: ['"Bebas Neue"', 'sans-serif'],
@@ -75,6 +129,21 @@
     }
     .badge-copa {
       animation: pulse-badge 2.5s infinite ease-in-out;
+    }
+
+    @keyframes neon-pulse-glow {
+      0%, 100% { box-shadow: 0 0 10px #86d7ae, 0 0 20px #86d7ae; opacity: 0.6; }
+      50% { box-shadow: 0 0 20px #86d7ae, 0 0 40px #86d7ae, 0 0 60px #86d7ae; opacity: 1; }
+    }
+    .animate-neon-pulse {
+      animation: neon-pulse-glow 2s infinite ease-in-out;
+    }
+    @keyframes neon-pulse-glow-mild {
+      0%, 100% { box-shadow: 0 0 5px #86d7ae, 0 0 10px #86d7ae; opacity: 0.3; }
+      50% { box-shadow: 0 0 10px #86d7ae, 0 0 20px #86d7ae; opacity: 0.6; }
+    }
+    .animate-neon-pulse-mild {
+      animation: neon-pulse-glow-mild 2.5s infinite ease-in-out;
     }
 
     .badge-recovery,
@@ -138,6 +207,13 @@
         padding-top: 20px !important;
       }
     }
+  
+    @keyframes pulse-bar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .animate-pulse-bar { animation: pulse-bar 2s ease-in-out infinite; }
+  
   </style>
 </head>
 
@@ -149,7 +225,7 @@
         <img src="meu-logo.gif" alt="Logo da Loja" class="h-16 sm:h-20 object-contain" onerror="this.style.display='none';" />
       </a>
       <div class="flex items-center gap-2 sm:gap-4">
-        <img src="Recovery+.png" alt="Recovery+" class="h-8 sm:h-10 object-contain" onerror="this.style.display='none';" />
+        <img src="Recovery+.png?v=2" alt="Recovery+" class="h-8 sm:h-10 object-contain" onerror="this.style.display='none';" />
         <button class="text-white hover:text-[#e7c433] transition-colors flex items-center justify-center" aria-label="Abrir menu">
           <i class="ti ti-menu-2 text-3xl sm:text-4xl"></i>
         </button>
@@ -179,10 +255,10 @@
     </div>
     <div id="carousel-track" class="relative w-full h-full">
       <video src="1.mp4" autoplay muted playsinline loop class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 z-10"></video>
+      <img src="1.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 1">
       <img src="2.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 2">
       <img src="3.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 3">
       <img src="4.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 4">
-      <img src="5.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 5">
     </div>
     
     <!-- Fade esmanhecido na base do vídeo corrigido -->
@@ -235,18 +311,30 @@
       <!-- Trust chips -->
       <div class="flex flex-col gap-3 mt-4 w-full">
         <div class="grid grid-cols-2 gap-3 w-full">
-          <div class="flex items-center gap-3 bg-brand-surface border border-brand-outline rounded-xl px-3 py-3 shadow-sm">
-            <i class="ti ti-truck-delivery text-brand-primary text-2xl flex-shrink-0"></i>
-            <div class="flex flex-col text-left">
-              <span class="font-bold text-sm text-brand-text leading-tight">Entrega Rapida</span>
-              <span class="text-[10px] text-brand-text-muted mt-0.5">24h apos PIX</span>
+          <!-- Entrega Rapida -->
+          <div class="relative overflow-hidden rounded-xl p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+              <div class="w-full h-full" style="background: conic-gradient(from 0deg, transparent 70%, #86d7ae 100%); filter: blur(4px); animation: spin 4s linear infinite reverse;"></div>
+            </div>
+            <div class="relative z-10 w-full h-full flex items-center gap-3 bg-brand-surface rounded-[11px] px-3 py-3">
+              <i class="ti ti-truck-delivery text-brand-primary text-2xl flex-shrink-0"></i>
+              <div class="flex flex-col text-left">
+                <span class="font-bold text-sm text-brand-text leading-tight">Entrega Rapida</span>
+                <span class="text-[10px] text-brand-text-muted mt-0.5">24h apos PIX</span>
+              </div>
             </div>
           </div>
-          <div class="flex items-center gap-3 bg-brand-surface border border-brand-outline rounded-xl px-3 py-3 shadow-sm">
-            <i class="ti ti-shield-check text-brand-primary text-2xl flex-shrink-0"></i>
-            <div class="flex flex-col text-left">
-              <span class="font-bold text-sm text-brand-text leading-tight">Garantia</span>
-              <span class="text-[10px] text-brand-text-muted mt-0.5">7 dias de teste</span>
+          <!-- Garantia -->
+          <div class="relative overflow-hidden rounded-xl p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+              <div class="w-full h-full" style="background: conic-gradient(from 0deg, transparent 70%, #2ddbde 100%); filter: blur(4px); animation: spin 4s linear infinite reverse;"></div>
+            </div>
+            <div class="relative z-10 w-full h-full flex items-center gap-3 bg-brand-surface rounded-[11px] px-3 py-3">
+              <i class="ti ti-shield-check text-brand-primary text-2xl flex-shrink-0"></i>
+              <div class="flex flex-col text-left">
+                <span class="font-bold text-sm text-brand-text leading-tight">Com Garantia</span>
+                <span class="text-[10px] text-brand-text-muted mt-0.5">7 dias de teste</span>
+              </div>
             </div>
           </div>
         </div>
@@ -282,7 +370,7 @@
           </blockquote>
 
           <p class="text-brand-text-muted text-base leading-relaxed">
-            Durante a Copa 2026, cameras capturam um detalhe pouco notado: nos momentos de descanso, atletas de elite trocam os chuteiros por este chinelo verde-azulado com bolhas salientes...
+            Durante a Copa 2026, câmeras capturaram um detalhe pouco notado: nos momentos de descanso, os grandes craques substituem as chuteiras por esse chinelo verde-azulado de textura massageadora...
           </p>
 
           <!-- Secondary Carousel -->
@@ -293,8 +381,7 @@
                 <div class="secondary-carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100 z-10 group">
                   <img src="Exclusivo A1.png" class="w-full h-full object-cover" alt="Você em Casa" onerror="this.style.display='none';">
                   
-                  <!-- Esmaecimentos -->
-                  <div class="absolute top-0 left-0 w-full h-28 md:h-40 bg-gradient-to-b from-[#131313] to-[#131313]/0 z-20 pointer-events-none"></div>
+                  <!-- Esmaecimentos removidos a pedido -->
                   
                   <div class="absolute top-10 sm:top-12 left-4 sm:left-6 z-30">
                     <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
@@ -306,9 +393,18 @@
                 <div class="secondary-carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 z-0 group">
                   <video id="secondary-video" src="Exclusivo A2.mp4" autoplay muted playsinline loop class="w-full h-full object-cover"></video>
                   
-                  <!-- Esmaecimentos -->
-                  <div class="absolute top-0 left-0 w-full h-28 md:h-40 bg-gradient-to-b from-[#131313] to-[#131313]/0 z-20 pointer-events-none"></div>
+                  <!-- Esmaecimentos removidos a pedido -->
                   
+                  <div class="absolute top-10 sm:top-12 left-4 sm:left-6 z-30">
+                    <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
+                      ⚽ Os Atletas na Copa
+                    </span>
+                  </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="secondary-carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 z-0 group">
+                  <img src="ATLETAS NA COPA 5.png" class="w-full h-full object-cover" alt="Os Atletas na Copa" onerror="this.style.display='none';">
+                  <!-- Esmaecimentos removidos a pedido -->
                   <div class="absolute top-10 sm:top-12 left-4 sm:left-6 z-30">
                     <span class="inline-flex items-center gap-2 w-fit bg-[#0a6847] border border-brand-primary/40 rounded-full px-4 py-1 text-[#f4d03f] text-xs font-semibold uppercase tracking-wider">
                       ⚽ Os Atletas na Copa
@@ -330,6 +426,11 @@
                 </svg>
               </button>
             </section>
+          </div>
+
+          <!-- Video Exclusivo B2 -->
+          <div class="mt-10 sm:mt-12 w-full">
+            <video src="Exclusivo B2.mp4" autoplay loop muted playsinline class="w-full h-auto rounded-[20px] lg:rounded-[24px] object-cover border border-brand-outline/40 shadow-2xl" onerror="this.style.display='none'"></video>
           </div>
         </div>
 
@@ -412,334 +513,494 @@
   </section>
 
   <!-- ============================================
-       OFFER + CHECKOUT
+       RECOVERY+ SECTION
   ============================================= -->
-  <section class="relative">
-    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent"></div>
-
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-
-        <!-- Price Card -->
-        <div class="bg-brand-surface border border-brand-primary/25 rounded-card-lg p-6 sm:p-8 shadow-glow-lg
-                    flex flex-col gap-5">
-          <!-- Badges row -->
-          <div class="flex items-center gap-3 flex-wrap">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1
-                         bg-brand-error/10 border border-brand-error/30 rounded-full
-                         text-brand-error text-xs font-semibold uppercase tracking-wider">
-              Oferta Exclusiva
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 ml-auto
-                         bg-brand-primary/15 border border-brand-primary/30 rounded-full
-                         text-brand-primary text-xs font-semibold tracking-wider">
-              <i class="ti ti-clock text-sm"></i> 14:59
-            </span>
+  <section class="relative bg-[#0f1612] pb-16 lg:pb-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Container Mobile (Scroll) e Desktop (Grid) -->
+      <div id="mind-scroll-container" class="flex lg:grid lg:grid-cols-3 gap-5 lg:gap-8 overflow-x-auto lg:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-2">
+        
+        <!-- Card 1 -->
+        <div class="flex-none w-[75vw] sm:w-[50vw] lg:w-auto snap-center flex flex-col gap-4 group">
+          <div class="overflow-hidden rounded-[15px] shadow-2xl bg-[#131313]">
+            <img src="PASSA 3.1.png" alt="Sapatilhas" class="w-full aspect-[4/5] lg:aspect-square object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.style.display='none'">
           </div>
-
-          <!-- Price block -->
-          <div>
-            <p class="text-sm text-brand-text-muted line-through">De R$ 299,00</p>
-            <div class="flex items-baseline gap-1 mt-1">
-              <span class="font-display text-2xl text-brand-secondary">Por R$</span>
-              <span class="font-display text-6xl sm:text-7xl text-brand-secondary leading-none">189</span>
-              <span class="font-display text-2xl sm:text-3xl text-brand-secondary">,90</span>
-            </div>
-            <p class="text-sm text-brand-primary font-medium mt-2">em ate 12x no cartao</p>
-          </div>
-
-          <!-- Stock urgency -->
-          <div class="border-t border-brand-outline pt-5">
-            <div class="flex justify-between items-center text-sm mb-2">
-              <span class="text-brand-error flex items-center gap-1.5">
-                <i class="ti ti-alert-triangle text-base"></i>
-                Restam 23 unidades
-              </span>
-              <span class="text-brand-text-muted">85% vendido</span>
-            </div>
-            <div class="w-full h-2 bg-brand-surface-highest rounded-full overflow-hidden">
-              <div class="h-full w-[85%] bg-brand-secondary rounded-full"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Checkout Buttons -->
-        <div class="flex flex-col gap-5 lg:pt-4">
-          <p class="text-sm font-semibold uppercase tracking-[0.1em] text-brand-text-muted text-center">
-            Escolha onde comprar
+          <p class="text-white font-bold text-base md:text-lg leading-tight lg:leading-snug">
+            Outros calçados bloqueiam as suas sensações.<br>A tecnologia Recovery+ as amplifica.
           </p>
-
-          <!-- Primary CTA -->
-          <a href="#"
-             class="flex items-center justify-center gap-3
-                    bg-brand-primary text-brand-on-primary rounded-btn
-                    py-4 px-8 text-base font-bold uppercase tracking-wider
-                    hover:bg-brand-primary/90 hover:shadow-glow-lg
-                    active:scale-[0.98] transition-all duration-300 ease-out">
-            <i class="ti ti-shopping-cart text-xl"></i>
-            Comprar no Site Oficial
-          </a>
-
-          <!-- Marketplace buttons -->
-          <div class="grid grid-cols-2 gap-4">
-            <a href="#"
-               class="flex flex-col items-center justify-center gap-1
-                      bg-brand-surface border border-brand-outline rounded-btn
-                      py-4 px-4
-                      hover:border-orange-500/40 hover:bg-brand-surface-high
-                      active:scale-[0.98] transition-all duration-300 ease-out group">
-              <span class="text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:text-orange-400 transition-colors">SHOPEE</span>
-              <span class="text-xs text-brand-primary">Frete Gratis</span>
-            </a>
-            <a href="#"
-               class="flex flex-col items-center justify-center gap-1
-                      bg-brand-surface border border-brand-outline rounded-btn
-                      py-4 px-4
-                      hover:border-yellow-400/40 hover:bg-brand-surface-high
-                      active:scale-[0.98] transition-all duration-300 ease-out group">
-              <span class="text-yellow-400 font-bold text-sm uppercase tracking-wider group-hover:text-yellow-300 transition-colors">MERCADO LIVRE</span>
-              <span class="text-xs text-brand-primary">Chega Amanha</span>
-            </a>
-          </div>
-
-          <!-- Trust row -->
-          <div class="flex items-center justify-center gap-6 sm:gap-8 pt-2">
-            <span class="flex items-center gap-1.5 text-sm text-brand-text-muted">
-              <i class="ti ti-lock text-brand-primary text-base"></i> PIX Seguro
-            </span>
-            <span class="flex items-center gap-1.5 text-sm text-brand-text-muted">
-              <i class="ti ti-shield text-brand-primary text-base"></i> Site Protegido
-            </span>
-            <span class="flex items-center gap-1.5 text-sm text-brand-text-muted">
-              <i class="ti ti-package text-brand-primary text-base"></i> Entrega Garantida
-            </span>
-          </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="flex-none w-[75vw] sm:w-[50vw] lg:w-auto snap-center flex flex-col gap-4 group">
+          <div class="overflow-hidden rounded-[15px] shadow-2xl bg-[#131313]">
+            <img src="PASSA 3.2.png" alt="Mecanorreceptores" class="w-full aspect-[4/5] lg:aspect-square object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.style.display='none'">
+          </div>
+          <p class="text-white font-bold text-base md:text-lg leading-tight lg:leading-snug">
+            Ativa as áreas sensoriais do seu cérebro estimulando milhares de receptores na planta do pé.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex-none w-[75vw] sm:w-[50vw] lg:w-auto snap-center flex flex-col gap-4 group">
+          <div class="overflow-hidden rounded-[15px] shadow-2xl bg-[#131313]">
+            <img src="PASSA 3.3.png" alt="Ligação Corpo Mente" class="w-full aspect-[4/5] lg:aspect-square object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.style.display='none'">
+          </div>
+          <p class="text-white font-bold text-base md:text-lg leading-tight lg:leading-snug">
+            Recovery+: a conexão perfeita entre corpo e mente para os seus momentos decisivos.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Scrollbar Customizada (Mobile Only) -->
+      <div id="mind-scroll-bar" class="w-32 mx-auto h-[3px] bg-[#2b2b2b] mt-8 lg:hidden rounded-full relative overflow-hidden opacity-0 transition-opacity duration-300">
+        <div id="mind-scroll-thumb" class="absolute top-0 left-0 h-full w-1/3 bg-[#888] rounded-full transition-transform duration-100 ease-out"></div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       MOBILE STICKY FAB
+       ATIVAÇÃO DOS SENTIDOS SECTION
   ============================================= -->
-  <div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-3 bg-gradient-to-t from-brand-bg via-brand-bg/95 to-transparent">
-    <a href="#"
-       class="flex items-center justify-center gap-2
-              bg-brand-secondary text-brand-on-secondary rounded-btn
-              py-3.5 px-6 text-sm font-bold uppercase tracking-wider w-full
-              shadow-glow-yellow hover:brightness-110
-              active:scale-[0.98] transition-all duration-300 ease-out">
-      COMPRAR COM DESCONTO
-      <i class="ti ti-arrow-right text-lg"></i>
-    </a>
-  </div>
+  <section class="relative bg-brand-bg pb-16 lg:pb-24">
+    <!-- Optional border gradient -->
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent"></div>
 
-  <!-- ============================================
-       FOOTER
-  ============================================= -->
-  <footer class="bg-[#0e0e0e] border-t border-brand-outline mt-8 lg:mt-0">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 sm:py-10">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-        <!-- Logo -->
-        <a href="#" class="font-display text-xl text-brand-primary/70 tracking-wider hover:text-brand-primary transition-colors">
-          NIKE MIND 001
-        </a>
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 lg:pt-16">
+      
+      <div id="ativacao-container" class="relative flex flex-col lg:border lg:border-brand-outline/50 lg:rounded-[2rem] lg:overflow-hidden lg:shadow-2xl">
+        <!-- Background Gradient & Particles -->
+        <div class="absolute inset-0 -mx-6 sm:-mx-8 lg:mx-0 bg-gradient-to-b from-[#131313] via-[#0a4d34] to-[#131313] pointer-events-none z-0"></div>
+        <canvas id="ativacao-particles" class="absolute inset-0 -mx-6 sm:-mx-8 lg:mx-0 w-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] lg:w-full h-full pointer-events-none z-0 opacity-60"></canvas>
+        
+        <div class="relative z-10 flex flex-col gap-6 w-full lg:p-12">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary pt-2 lg:pt-0">
+            Ativação dos Sentidos
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase leading-none tracking-wide">
+            Os Efeitos Secundários <span class="text-brand-secondary">Incluem</span>
+          </h2>
 
-        <!-- Links -->
-        <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Privacy Policy</a>
-          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Terms of Service</a>
-          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Recovery Science</a>
-          <a href="#" class="text-sm text-brand-text-muted hover:text-brand-primary transition-colors duration-300">Contact Support</a>
-        </nav>
+          <div class="flex flex-col gap-5 mt-2">
+            <!-- Feature 1: Mente Limpa -->
+            <div class="relative overflow-hidden rounded-card p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #86d7ae 100%); filter: blur(4px);"></div>
+              </div>
+              
+              <!-- Inner Card -->
+              <div class="relative z-10 w-full h-full bg-brand-surface rounded-[15px] p-5 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-brand-primary/15 flex items-center justify-center flex-shrink-0">
+                  <i class="ti ti-brain text-brand-primary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Mente Limpa</h4>
+                  <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Um estado de clareza absoluta e foco inabalável.</p>
+                </div>
+              </div>
+            </div>
 
-        <!-- Copyright -->
-        <p class="text-sm text-brand-text-muted">
-          &copy; 2026 NIKE RECOVERY LABS.
-        </p>
+            <!-- Feature 2: Agir por Instinto -->
+            <div class="relative overflow-hidden rounded-card p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #2ddbde 100%); filter: blur(4px);"></div>
+              </div>
+              
+              <!-- Inner Card -->
+              <div class="relative z-10 w-full h-full bg-brand-surface rounded-[15px] p-5 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-brand-tertiary/15 flex items-center justify-center flex-shrink-0">
+                  <i class="ti ti-bolt text-brand-tertiary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Agir por Instinto</h4>
+                  <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Conexão imediata entre corpo e mente para reações naturais.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 3: Total Ausência de Hesitação -->
+            <div class="relative overflow-hidden rounded-card p-[1px] bg-brand-outline hover:shadow-glow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #e7c433 100%); filter: blur(4px);"></div>
+              </div>
+              
+              <!-- Inner Card -->
+              <div class="relative z-10 w-full h-full bg-brand-surface rounded-[15px] p-5 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-brand-secondary/15 flex items-center justify-center flex-shrink-0">
+                  <i class="ti ti-shield-check text-brand-secondary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-brand-text">Total Ausência de Hesitação</h4>
+                  <p class="text-sm text-brand-text-muted mt-1 leading-relaxed">Confiança plena em cada movimento e decisão.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Exclusivo B1 -->
+          <div class="mt-10 sm:mt-12 w-full">
+            <div class="relative rounded-[20px] lg:rounded-[24px] p-[2px] group">
+              <!-- Pulsing Neon Background -->
+              <div class="absolute inset-0 bg-[#86d7ae] rounded-[20px] lg:rounded-[24px] z-0 animate-neon-pulse-mild"></div>
+              
+              <!-- Video Container -->
+              <div class="relative z-10 w-full h-full bg-[#131313] rounded-[18px] lg:rounded-[22px] overflow-hidden">
+                <video src="Exclusivo B1.mp4" autoplay loop muted playsinline class="w-full h-auto object-cover" onerror="this.style.display='none'"></video>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Bottom padding for mobile FAB -->
-    <div class="h-16 lg:h-0"></div>
-  </footer>
+
+<!-- ═══════════ PROPOSTA DE VALOR ═══════════ -->
+<section class="relative bg-section-gradient py-16 sm:py-20 lg:py-24">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent"></div>
+  <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+    <p class="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight uppercase text-brand-text mb-6">
+      A tecnologia de um chinelo de <span class="text-brand-tertiary">R$ 2.000</span>, agora acessível para o seu dia a dia.
+    </p>
+    <div class="flex items-center justify-center gap-4 flex-wrap mb-4">
+      <span class="text-xl text-brand-text-muted line-through">De R$ 299</span>
+      <span class="font-display text-6xl text-brand-primary leading-none">Por R$ 189</span>
+    </div>
+    <p class="text-sm text-brand-text-muted mb-8">💳 ou em até 12x no cartão</p>
+    
+    <a href="#checkout"
+       class="flex items-center justify-center gap-3 max-w-[400px] mx-auto
+              bg-brand-primary text-brand-on-primary rounded-btn
+              py-5 px-8 text-xl font-display uppercase tracking-wider font-bold
+              hover:bg-brand-primary/90 hover:shadow-glow-lg
+              active:scale-[0.98] transition-all duration-300 ease-out">
+      GARANTIR MINHA UNIDADE &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ OFERTA + ESCASSEZ ═══════════ -->
+<section class="relative bg-brand-bg py-16 sm:py-20 lg:py-24 text-center" id="oferta">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/20 to-transparent"></div>
+  <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="inline-flex items-center gap-1.5 px-4 py-1.5 mb-6 bg-brand-error/10 border border-brand-error/30 rounded-full text-brand-error text-xs font-semibold uppercase tracking-wider">
+      Oferta Exclusiva
+    </div>
+    <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mb-10">Esta oferta encerra em:</h2>
+    
+    <div class="flex gap-4 mb-10 justify-center">
+      <div class="text-center bg-brand-surface border border-brand-outline rounded-xl py-4 px-3 min-w-[80px] shadow-glow-yellow/10">
+        <div class="font-display text-5xl leading-none text-brand-secondary" id="t-h">23</div>
+        <div class="text-[11px] text-brand-text-muted tracking-[0.1em] uppercase mt-1">Horas</div>
+      </div>
+      <div class="text-center bg-brand-surface border border-brand-outline rounded-xl py-4 px-3 min-w-[80px] shadow-glow-yellow/10">
+        <div class="font-display text-5xl leading-none text-brand-secondary" id="t-m">59</div>
+        <div class="text-[11px] text-brand-text-muted tracking-[0.1em] uppercase mt-1">Min</div>
+      </div>
+      <div class="text-center bg-brand-surface border border-brand-outline rounded-xl py-4 px-3 min-w-[80px] shadow-glow-yellow/10">
+        <div class="font-display text-5xl leading-none text-brand-secondary" id="t-s">59</div>
+        <div class="text-[11px] text-brand-text-muted tracking-[0.1em] uppercase mt-1">Seg</div>
+      </div>
+    </div>
+    
+    <div class="max-w-[450px] mx-auto mb-8 bg-brand-surface border border-brand-outline rounded-xl p-5 text-left">
+      <div class="flex justify-between items-center text-sm mb-3">
+        <span class="text-brand-error font-semibold flex items-center gap-1.5"><i class="ti ti-alert-triangle text-base"></i> Restam apenas 23 unidades</span>
+        <span class="text-brand-text-muted font-medium text-xs">85% Vendido</span>
+      </div>
+      <div class="h-2 bg-brand-surface-highest rounded-full overflow-hidden">
+        <div class="h-full w-[85%] bg-brand-secondary rounded-full animate-pulse-bar"></div>
+      </div>
+    </div>
+    
+    <a href="#checkout"
+       class="flex items-center justify-center gap-3 max-w-[450px] mx-auto
+              bg-brand-secondary text-brand-bg rounded-btn
+              py-5 px-8 text-xl font-display uppercase tracking-wider font-bold
+              hover:bg-brand-secondary/90 hover:shadow-glow-yellow
+              active:scale-[0.98] transition-all duration-300 ease-out">
+      COMPRAR AGORA COM DESCONTO &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ PROVA SOCIAL ═══════════ -->
+<section class="relative bg-section-gradient py-16 sm:py-20 lg:py-24">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-tertiary/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="text-center mb-12">
+      <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-tertiary">Avaliações Verificadas</span>
+      <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mt-3">O que nossos clientes dizem</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
+        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+        </div>
+        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Uso depois do futevôlei na praia, cara. Outro nível de recuperação. Meu tornozelo parou de inchar depois dos jogos."</p>
+        <div class="text-brand-tertiary font-bold text-sm">Rafael M. — São Paulo, SP</div>
+      </div>
+      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
+        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+        </div>
+        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Comprei pra meu marido que joga futebol no fim de semana. Ele não tira mais do pé. Chegou em menos de 24h aqui em Curitiba."</p>
+        <div class="text-brand-tertiary font-bold text-sm">Camila R. — Curitiba, PR</div>
+      </div>
+      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
+        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+        </div>
+        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Sou personal trainer e recomendo pra todos meus alunos. As bolinhas na sola fazem diferença real na recuperação pós-treino."</p>
+        <div class="text-brand-tertiary font-bold text-sm">Diego F. — Belo Horizonte, MG</div>
+      </div>
+      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
+        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+        </div>
+        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Trabalho de pé o dia todo como enfermeira. Quando chego em casa coloco esse chinelo e parece que saiu todo o cansaço do pé."</p>
+        <div class="text-brand-tertiary font-bold text-sm">Jéssica L. — Recife, PE</div>
+      </div>
+      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
+        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+        </div>
+        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Vi nas redes o pessoal usando na concentração e fui atrás. Vale cada centavo. Qualidade impressionante pelo preço."</p>
+        <div class="text-brand-tertiary font-bold text-sm">Thiago B. — Porto Alegre, RS</div>
+      </div>
+      <div class="bg-brand-surface border border-brand-outline rounded-card p-6 shadow-glow/5 relative overflow-hidden group hover:border-brand-tertiary/40 transition-colors">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-tertiary"></div>
+        <div class="text-brand-secondary text-lg mb-3 flex gap-1">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+        </div>
+        <p class="text-brand-text-muted mb-4 leading-relaxed italic text-sm">"Comprei desconfiado mas a garantia de 7 dias me convenceu. Não devolvi não, pelo contrário, já comprei outro pra meu filho."</p>
+        <div class="text-brand-tertiary font-bold text-sm">Marcos A. — Goiânia, GO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="relative bg-brand-bg py-16 sm:py-20 lg:py-24">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-tertiary/20 to-transparent"></div>
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="text-center mb-10">
+      <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-tertiary">Dúvidas</span>
+      <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mt-2">Perguntas Frequentes</h2>
+    </div>
+    <div id="faq-list" class="flex flex-col gap-3">
+      <div class="faq-item group bg-brand-surface border border-brand-outline rounded-card overflow-hidden">
+        <button class="w-full bg-transparent border-none text-left py-5 px-6 text-base font-semibold text-brand-text cursor-pointer flex justify-between items-center gap-4 hover:bg-brand-surface-high transition-colors">
+          Tem nota fiscal?
+          <span class="shrink-0 w-8 h-8 bg-brand-bg border border-brand-outline text-brand-tertiary rounded-full flex items-center justify-center text-lg transition-transform duration-300 group-[.open]:rotate-45 group-hover:border-brand-tertiary/40">+</span>
+        </button>
+        <div class="hidden text-sm text-brand-text-muted px-6 pb-6 leading-relaxed group-[.open]:block">Sim! A NF-e é emitida automaticamente e enviada para o seu e-mail após a confirmação do pagamento.</div>
+      </div>
+      <div class="faq-item group bg-brand-surface border border-brand-outline rounded-card overflow-hidden">
+        <button class="w-full bg-transparent border-none text-left py-5 px-6 text-base font-semibold text-brand-text cursor-pointer flex justify-between items-center gap-4 hover:bg-brand-surface-high transition-colors">
+          Quanto tempo demora a entrega?
+          <span class="shrink-0 w-8 h-8 bg-brand-bg border border-brand-outline text-brand-tertiary rounded-full flex items-center justify-center text-lg transition-transform duration-300 group-[.open]:rotate-45 group-hover:border-brand-tertiary/40">+</span>
+        </button>
+        <div class="hidden text-sm text-brand-text-muted px-6 pb-6 leading-relaxed group-[.open]:block">Para todo o Brasil, despachamos em até 24 horas após a confirmação do PIX. O prazo de entrega varia de 2 a 7 dias úteis dependendo da sua região.</div>
+      </div>
+      <div class="faq-item group bg-brand-surface border border-brand-outline rounded-card overflow-hidden">
+        <button class="w-full bg-transparent border-none text-left py-5 px-6 text-base font-semibold text-brand-text cursor-pointer flex justify-between items-center gap-4 hover:bg-brand-surface-high transition-colors">
+          Serve para qualquer tamanho de pé?
+          <span class="shrink-0 w-8 h-8 bg-brand-bg border border-brand-outline text-brand-tertiary rounded-full flex items-center justify-center text-lg transition-transform duration-300 group-[.open]:rotate-45 group-hover:border-brand-tertiary/40">+</span>
+        </button>
+        <div class="hidden text-sm text-brand-text-muted px-6 pb-6 leading-relaxed group-[.open]:block">Sim! O design universal com tira regulável serve confortavelmente para pés entre os tamanhos 35 e 43.</div>
+      </div>
+      <div class="faq-item group bg-brand-surface border border-brand-outline rounded-card overflow-hidden">
+        <button class="w-full bg-transparent border-none text-left py-5 px-6 text-base font-semibold text-brand-text cursor-pointer flex justify-between items-center gap-4 hover:bg-brand-surface-high transition-colors">
+          E se eu não gostar?
+          <span class="shrink-0 w-8 h-8 bg-brand-bg border border-brand-outline text-brand-tertiary rounded-full flex items-center justify-center text-lg transition-transform duration-300 group-[.open]:rotate-45 group-hover:border-brand-tertiary/40">+</span>
+        </button>
+        <div class="hidden text-sm text-brand-text-muted px-6 pb-6 leading-relaxed group-[.open]:block">Garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, basta entrar em contato e realizamos o reembolso total via PIX, sem perguntas.</div>
+      </div>
+      <div class="faq-item group bg-brand-surface border border-brand-outline rounded-card overflow-hidden">
+        <button class="w-full bg-transparent border-none text-left py-5 px-6 text-base font-semibold text-brand-text cursor-pointer flex justify-between items-center gap-4 hover:bg-brand-surface-high transition-colors">
+          Qual a procedência do produto?
+          <span class="shrink-0 w-8 h-8 bg-brand-bg border border-brand-outline text-brand-tertiary rounded-full flex items-center justify-center text-lg transition-transform duration-300 group-[.open]:rotate-45 group-hover:border-brand-tertiary/40">+</span>
+        </button>
+        <div class="hidden text-sm text-brand-text-muted px-6 pb-6 leading-relaxed group-[.open]:block">Tecnologia importada com as mesmas especificações utilizadas por atletas de alto rendimento. Produto regularizado e com nota fiscal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MATRIZ DE CHECKOUT ═══════════ -->
+<section class="relative bg-section-gradient py-16 sm:py-20 lg:py-24" id="checkout">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-tertiary/20 to-transparent"></div>
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+    <span class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-tertiary">Escolha onde comprar</span>
+    <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mt-2 mb-4">Compre no Canal<br/>que você Confia</h2>
+    <p class="text-sm text-brand-text-muted max-w-[480px] mx-auto mb-10 leading-relaxed">Escolha a plataforma onde se sentir mais seguro para realizar sua compra.</p>
+    
+    <div class="flex flex-col gap-4 text-left">
+      <a href="#" class="flex items-center justify-between p-5 rounded-btn border-2 border-brand-primary bg-brand-surface text-brand-text cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:bg-brand-surface-high group">
+        <span class="text-2xl w-10 text-center"><i class="ti ti-shopping-cart text-brand-primary"></i></span>
+        <div class="flex-1 px-4">
+          <span class="font-bold text-base md:text-lg block mb-0.5 group-hover:text-brand-primary transition-colors">Comprar no Site Oficial</span>
+          <span class="block text-xs font-normal text-brand-text-muted">Desconto exclusivo no PIX + Frete Grátis</span>
+        </div>
+        <span class="text-xl text-brand-primary opacity-60 group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+      
+      <a href="#" class="flex items-center justify-between p-5 rounded-btn border-2 border-brand-outline hover:border-orange-500/50 bg-brand-surface text-brand-text cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-glow/10 group">
+        <span class="text-2xl w-10 text-center"><i class="ti ti-shopping-bag text-orange-500"></i></span>
+        <div class="flex-1 px-4">
+          <span class="font-bold text-base md:text-lg block mb-0.5 group-hover:text-orange-500 transition-colors">Comprar na Shopee</span>
+          <span class="block text-xs font-normal text-brand-text-muted">Garantia Shopee — selecione "Modelo Aero-Green"</span>
+        </div>
+        <span class="text-xl text-orange-500 opacity-60 group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+      
+      <a href="#" class="flex items-center justify-between p-5 rounded-btn border-2 border-brand-outline hover:border-yellow-400/50 bg-brand-surface text-brand-text cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-glow/10 group">
+        <span class="text-2xl w-10 text-center"><i class="ti ti-package text-yellow-400"></i></span>
+        <div class="flex-1 px-4">
+          <span class="font-bold text-base md:text-lg block mb-0.5 group-hover:text-yellow-400 transition-colors">Comprar no Mercado Livre</span>
+          <span class="block text-xs font-normal text-brand-text-muted">Proteção Mercado Pago + Entrega Full</span>
+        </div>
+        <span class="text-xl text-yellow-400 opacity-60 group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    </div>
+    
+    <div class="flex justify-center gap-6 flex-wrap mt-10 pt-8 border-t border-brand-outline/50">
+      <div class="flex items-center gap-2 text-xs font-semibold text-brand-text-muted"><i class="ti ti-lock text-brand-tertiary text-lg"></i> PIX Seguro</div>
+      <div class="flex items-center gap-2 text-xs font-semibold text-brand-text-muted"><i class="ti ti-shield-check text-brand-tertiary text-lg"></i> Site Protegido</div>
+      <div class="flex items-center gap-2 text-xs font-semibold text-brand-text-muted"><i class="ti ti-truck-delivery text-brand-tertiary text-lg"></i> Entrega Garantida</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GARANTIA + CTA FINAL ═══════════ -->
+<section class="bg-brand-surface-high text-center py-16 px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-5xl mb-4 text-brand-tertiary"><i class="ti ti-shield-check"></i></div>
+    <h2 class="font-display text-4xl md:text-5xl uppercase text-brand-secondary mb-4">Garantia Total de 7 Dias</h2>
+    <p class="text-sm md:text-base text-brand-text-muted mx-auto mb-10 leading-relaxed max-w-[400px]">
+      Compre sem risco. Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu dinheiro via PIX. Sem burocracia.
+    </p>
+    <a href="#checkout"
+       class="flex items-center justify-center gap-3 max-w-[400px] mx-auto
+              bg-brand-primary text-brand-on-primary rounded-btn
+              py-5 px-8 text-xl font-display uppercase tracking-wider font-bold
+              hover:bg-brand-primary/90 hover:shadow-glow-lg
+              active:scale-[0.98] transition-all duration-300 ease-out">
+      COMPRAR AGORA COM DESCONTO &rarr;
+    </a>
+    <p class="text-brand-text-muted/60 text-xs mt-4 uppercase tracking-wider font-semibold">
+      &bull; Oferta por tempo limitado &bull; Frete grátis Brasil &bull;
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="bg-brand-bg border-t border-brand-outline">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
+      <a href="#" class="font-display text-2xl text-brand-primary tracking-wider hover:text-brand-primary/80 transition-colors">
+        RECOVERY+
+      </a>
+      <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+        <a href="#" class="text-xs text-brand-text-muted hover:text-brand-primary transition-colors">Privacy Policy</a>
+        <a href="#" class="text-xs text-brand-text-muted hover:text-brand-primary transition-colors">Terms of Service</a>
+        <a href="#" class="text-xs text-brand-text-muted hover:text-brand-primary transition-colors">Recovery Science</a>
+        <a href="#" class="text-xs text-brand-text-muted hover:text-brand-primary transition-colors">Contact Support</a>
+      </nav>
+    </div>
+    <div class="border-t border-brand-outline/30 pt-6 text-center">
+      <p class="text-xs text-brand-text-muted/50 mb-1">&copy; 2026 RECOVERY+ LABS.</p>
+      <p class="text-[10px] text-brand-text-muted/30">Este site não possui vínculo com clubes, federações ou seleções nacionais.</p>
+    </div>
+  </div>
+  <div class="h-20 lg:h-0"></div> <!-- Mobile FAB padding -->
+</footer>
+
+<!-- ═══════════ FLOATING CTA ═══════════ -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] hidden lg:block" id="float-cta" style="display:none;">
+  <a href="#checkout"
+     class="flex items-center justify-center gap-3
+            bg-brand-primary text-brand-on-primary rounded-full
+            py-3 px-8 text-lg font-display uppercase tracking-wider font-bold
+            hover:bg-brand-primary/90 shadow-glow-lg
+            active:scale-[0.98] transition-all duration-300 ease-out whitespace-nowrap">
+    <i class="ti ti-shopping-cart text-xl"></i> COMPRAR COM DESCONTO &rarr;
+  </a>
+</div>
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.carousel-item');
-    const progressBars = document.querySelectorAll('.progress-bar');
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const throbberCircle = document.getElementById('video-progress-circle');
-    const pauseIcon = document.getElementById('video-pause-icon');
-    const playIcon = document.getElementById('video-play-icon');
-    const circumference = 138.23;
-    
-    let currentIndex = 0;
-    let isPaused = false;
-    let progress = 0;
-    let animationFrame;
-    let lastTime = 0;
-    let currentDuration = 5000;
+// ── TIMER PERSISTENTE (localStorage) ──
+    (function() {
+      const KEY = 'recovery_timer_end';
+      const DURATION = 24 * 60 * 60 * 1000; // 24h em ms
 
-    function startCarousel(timestamp) {
-      if (!lastTime) lastTime = timestamp;
-      const deltaTime = timestamp - lastTime;
-      lastTime = timestamp;
+      let endTime = localStorage.getItem(KEY);
+      if (!endTime || Date.now() > Number(endTime)) {
+        endTime = Date.now() + DURATION;
+        localStorage.setItem(KEY, endTime);
+      }
 
-      if (!isPaused) {
-        progress += (deltaTime / currentDuration) * 100;
-        
-        if (progress >= 100) {
-          progress = 100;
-          progressBars[currentIndex].style.width = '100%';
-          goToNext();
-        } else {
-          progressBars[currentIndex].style.width = `${progress}%`;
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const diff = Number(endTime) - Date.now();
+        if (diff <= 0) {
+          localStorage.removeItem(KEY);
+          document.getElementById('t-h').textContent = '00';
+          document.getElementById('t-m').textContent = '00';
+          document.getElementById('t-s').textContent = '00';
+          return;
         }
-        if (throbberCircle) {
-          throbberCircle.style.strokeDashoffset = circumference - (progress / 100 * circumference);
-        }
-      }
-      animationFrame = requestAnimationFrame(startCarousel);
-    }
-
-    function goToNext() {
-      items[currentIndex].classList.remove('opacity-100', 'z-10');
-      items[currentIndex].classList.add('opacity-0', 'z-0');
-      if(items[currentIndex].tagName === 'VIDEO') items[currentIndex].pause();
-
-      currentIndex = (currentIndex + 1) % items.length;
-
-      if (currentIndex === 0) {
-        progressBars.forEach(bar => bar.style.width = '0%');
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('t-h').textContent = pad(h);
+        document.getElementById('t-m').textContent = pad(m);
+        document.getElementById('t-s').textContent = pad(s);
       }
 
-      items[currentIndex].classList.remove('opacity-0', 'z-0');
-      items[currentIndex].classList.add('opacity-100', 'z-10');
-      
-      progress = 0;
-      
-      if(items[currentIndex].tagName === 'VIDEO') {
-        const vid = items[currentIndex];
-        vid.currentTime = 0;
-        vid.play();
-        currentDuration = (vid.duration && !isNaN(vid.duration)) ? vid.duration * 1000 : 8000;
-      } else {
-        currentDuration = 5000;
-      }
-    }
+      tick();
+      setInterval(tick, 1000);
+    })();
 
-    playPauseBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      isPaused = !isPaused;
-      if (items[currentIndex].tagName === 'VIDEO') {
-        isPaused ? items[currentIndex].pause() : items[currentIndex].play();
-      }
-      if (pauseIcon && playIcon) {
-        if (isPaused) {
-          pauseIcon.style.display = 'none';
-          playIcon.style.display = 'block';
-        } else {
-          pauseIcon.style.display = 'block';
-          playIcon.style.display = 'none';
-        }
-      }
+    // ── FAQ ACCORDION ──
+    document.querySelectorAll('.faq-item button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
     });
 
-    if(items[0].tagName === 'VIDEO') {
-      items[0].addEventListener('loadedmetadata', () => {
-        currentDuration = items[0].duration * 1000;
-      });
-    }
-
-    animationFrame = requestAnimationFrame(startCarousel);
-
-    // Secondary Carousel Logic
-    const secItems = document.querySelectorAll('.secondary-carousel-item');
-    const secPlayBtn = document.getElementById('sec-play-pause-btn');
-    const secCircle = document.getElementById('sec-video-progress-circle');
-    const secPauseIcon = document.getElementById('sec-video-pause-icon');
-    const secPlayIcon = document.getElementById('sec-video-play-icon');
-    
-    if (secItems.length > 0) {
-      let secIndex = 0;
-      let secPaused = false;
-      let secProgress = 0;
-      let secLastTime = 0;
-      let secDuration = 5000;
-      let secAnimFrame;
-      const secVideo = document.getElementById('secondary-video');
-
-      if (secVideo) {
-        secVideo.addEventListener('loadedmetadata', () => {
-          if (secIndex === 1) secDuration = secVideo.duration * 1000;
-        });
+    // ── FLOATING CTA: aparece após scroll ──
+    var floatCta = document.getElementById('float-cta');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 600) {
+        floatCta.style.display = 'block';
+      } else {
+        floatCta.style.display = 'none';
       }
-
-      function startSecCarousel(timestamp) {
-        if (!secLastTime) secLastTime = timestamp;
-        const delta = timestamp - secLastTime;
-        secLastTime = timestamp;
-
-        if (!secPaused) {
-          secProgress += (delta / secDuration) * 100;
-          if (secProgress >= 100) {
-            secProgress = 100;
-            goNextSec();
-          }
-          if (secCircle) {
-            secCircle.style.strokeDashoffset = circumference - (secProgress / 100 * circumference);
-          }
-        }
-        secAnimFrame = requestAnimationFrame(startSecCarousel);
-      }
-
-      function goNextSec() {
-        secItems[secIndex].classList.remove('opacity-100', 'z-10');
-        secItems[secIndex].classList.add('opacity-0', 'z-0');
-        const currVid = secItems[secIndex].querySelector('video');
-        if (currVid) currVid.pause();
-
-        secIndex = (secIndex + 1) % secItems.length;
-
-        secItems[secIndex].classList.remove('opacity-0', 'z-0');
-        secItems[secIndex].classList.add('opacity-100', 'z-10');
-        
-        secProgress = 0;
-        
-        const nextVid = secItems[secIndex].querySelector('video');
-        if (nextVid) {
-          nextVid.currentTime = 0;
-          nextVid.play();
-          secDuration = (nextVid.duration && !isNaN(nextVid.duration)) ? nextVid.duration * 1000 : 13000;
-        } else {
-          secDuration = 5000;
-        }
-      }
-
-      if (secPlayBtn) {
-        secPlayBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          secPaused = !secPaused;
-          const currVid = secItems[secIndex].querySelector('video');
-          if (currVid) {
-            secPaused ? currVid.pause() : currVid.play();
-          }
-          if (secPauseIcon && secPlayIcon) {
-            secPauseIcon.style.display = secPaused ? 'none' : 'block';
-            secPlayIcon.style.display = secPaused ? 'block' : 'none';
-          }
-        });
-      }
-
-      secAnimFrame = requestAnimationFrame(startSecCarousel);
-    }
-  });
+    });
+  
   </script>
   <script>
-    // Particle Animation for Tecnologia Section
-    const canvas = document.getElementById('tech-particles');
-    if (canvas) {
+    // Particle Animation Reusable Logic
+    function initParticleSystem(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      
       const ctx = canvas.getContext('2d');
       let particlesArray = [];
       const numberOfParticles = window.innerWidth < 768 ? 30 : 50;
@@ -798,6 +1059,38 @@
       resizeCanvas();
       initParticles();
       animateParticles();
+    }
+
+    initParticleSystem('tech-particles');
+    initParticleSystem('ativacao-particles');
+
+    // Scroll progress bar for Nike Mind section
+    const mindContainer = document.getElementById('mind-scroll-container');
+    const mindThumb = document.getElementById('mind-scroll-thumb');
+    const mindBar = document.getElementById('mind-scroll-bar');
+    let mindHideTimeout;
+    
+    if(mindContainer && mindThumb && mindBar) {
+      const showScrollbar = () => {
+        mindBar.classList.remove('opacity-0');
+        mindBar.classList.add('opacity-100');
+        clearTimeout(mindHideTimeout);
+        mindHideTimeout = setTimeout(() => {
+          mindBar.classList.remove('opacity-100');
+          mindBar.classList.add('opacity-0');
+        }, 1200);
+      };
+
+      mindContainer.addEventListener('touchstart', showScrollbar, { passive: true });
+      mindContainer.addEventListener('scroll', () => {
+        showScrollbar();
+        const maxScroll = mindContainer.scrollWidth - mindContainer.clientWidth;
+        if(maxScroll > 0) {
+          const scrollPercentage = mindContainer.scrollLeft / maxScroll;
+          // Thumb is 1/3 width, so it can translate up to 200% of its own width
+          mindThumb.style.transform = `translateX(${scrollPercentage * 200}%)`;
+        }
+      });
     }
   </script>
 </body>

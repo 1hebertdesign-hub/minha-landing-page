@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chinelo Recovery | Tecnologia de Recuperação Muscular dos Atletas</title>
+<!-- SEO Meta Tags -->
+<meta content="Chinelo de recuperação muscular com 42 células de massagem plantar. O mesmo modelo usado por atletas de alto rendimento na Copa 2026. Frete grátis em 24h." name="description"/>
+<meta content="chinelo recovery, chinelo recuperação muscular, chinelo pós-treino, massagem plantar, chinelo atleta, recuperação pós-jogo, chinelo copa 2026" name="keywords"/>
+<meta content="O Chinelo que os Craques Usam no Vestiário" property="og:title"/>
+<meta content="Tecnologia de recuperação muscular com 42 células de massagem plantar. Frete grátis para todo Brasil em 24h." property="og:description"/>
+<meta content="website" property="og:type"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-dim": "#131313",
+                  "surface-bright": "#393939",
+                  "on-surface-variant": "#bec9c1",
+                  "on-tertiary-container": "#005c5e",
+                  "recovery-teal": "#2ddbde",
+                  "surface-container-lowest": "#0e0e0e",
+                  "canary-yellow": "#e7c433",
+                  "secondary-fixed": "#ffe174",
+                  "secondary-container": "#c1a100",
+                  "inverse-primary": "#116c4a",
+                  "on-secondary-fixed-variant": "#554500",
+                  "on-primary-fixed": "#002113",
+                  "error-container": "#93000a",
+                  "on-surface": "#e5e2e1",
+                  "surface-container": "#201f1f",
+                  "outline": "#89938b",
+                  "surface-container-high": "#2a2a2a",
+                  "outline-variant": "#3f4943",
+                  "on-tertiary-fixed": "#002020",
+                  "primary-fixed": "#a2f4c9",
+                  "secondary-fixed-dim": "#e7c433",
+                  "on-primary-container": "#005f40",
+                  "surface-container-low": "#1c1b1b",
+                  "error": "#ffb4ab",
+                  "deep-charcoal": "#131313",
+                  "background": "#131313",
+                  "surface-container-highest": "#353534",
+                  "primary-fixed-dim": "#86d7ae",
+                  "tertiary": "#59f8fb",
+                  "tertiary-fixed-dim": "#2edbde",
+                  "surface-tint": "#86d7ae",
+                  "on-primary": "#003824",
+                  "inverse-surface": "#e5e2e1",
+                  "on-tertiary": "#003738",
+                  "on-background": "#e5e2e1",
+                  "primary": "#a2f4c9",
+                  "on-primary-fixed-variant": "#005236",
+                  "on-tertiary-fixed-variant": "#004f51",
+                  "surface": "#131313",
+                  "on-secondary": "#3b2f00",
+                  "on-secondary-fixed": "#221b00",
+                  "inverse-on-surface": "#313030",
+                  "primary-container": "#86d7ae",
+                  "tertiary-fixed": "#5af8fb",
+                  "on-secondary-container": "#453800",
+                  "on-error-container": "#ffdad6",
+                  "surface-variant": "#353534",
+                  "secondary": "#e7c433",
+                  "athletic-green": "#86d7ae",
+                  "on-error": "#690005",
+                  "tertiary-container": "#2ddbde"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "1.5rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-desktop": "80px",
+                  "section-gap": "64px",
+                  "gutter": "16px",
+                  "container-margin": "24px",
+                  "margin-mobile": "24px",
+                  "base": "8px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": [
+                          "Bebas Neue"
+                  ],
+                  "display-lg": [
+                          "Bebas Neue"
+                  ],
+                  "headline-lg": [
+                          "Bebas Neue"
+                  ],
+                  "headline-md": [
+                          "Bebas Neue"
+                  ],
+                  "body-md": [
+                          "Inter"
+                  ],
+                  "body-lg": [
+                          "Inter"
+                  ],
+                  "label-xl": [
+                          "Inter"
+                  ],
+                  "label-md": [
+                          "Inter"
+                  ],
+                  "bebas": [
+                          "Bebas Neue"
+                  ],
+                  "inter": [
+                          "Inter"
+                  ]
+          },
+          backgroundImage: {
+            'cell-pattern': 'radial-gradient(circle at 10px 10px, rgba(45, 219, 222, 0.05) 2px, transparent 0)',
+          }
+        },
+      }
+    }
+  </script>
+<style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    .cell-bg {
+      background-size: 24px 24px;
+      background-image: var(--tw-gradient-stops);
+    }
+    
+    /* ===== ANIMAÇÕES ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeUp 0.5s ease both; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+
+    @keyframes pulse-bar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .animate-pulse-bar { animation: pulse-bar 2s ease-in-out infinite; }
+  </style>
+</head>
+<body class="font-inter bg-deep-charcoal text-on-background overflow-x-hidden cell-bg from-cell-pattern to-transparent">
+<!-- TOP BAR -->
+<div class="bg-surface-container-high text-on-surface text-center py-2 px-4 text-sm font-semibold tracking-widest uppercase font-bebas sticky top-0 z-50 border-b border-outline-variant">
+    🇧🇷 Frete <span class="text-canary-yellow">GRÁTIS</span> para todo o Brasil  |  Entrega em <span class="text-canary-yellow">24h</span> após PIX
+  </div>
+<!-- ═══════════ HERO ═══════════ -->
+<section class="relative pt-12 pb-16 px-5 md:pt-20 md:pb-20 md:px-10 max-w-[900px] mx-auto text-center">
+<div class="absolute top-[-40px] right-[-40px] w-72 h-72 bg-recovery-teal/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="inline-flex items-center gap-1.5 bg-canary-yellow/10 border border-canary-yellow text-canary-yellow text-[11px] font-bold tracking-widest uppercase py-1.5 px-3.5 rounded-full mb-5 animate-fade-up">
+      ⚽ Lançamento Copa 2026
+    </div>
+<h1 class="font-bebas text-5xl md:text-7xl leading-[0.95] mb-5 uppercase animate-fade-up delay-100">
+      O Chinelo que os <em class="text-athletic-green not-italic">Craques</em> Usam no Vestiário —<br/>Agora Disponível
+    </h1>
+<p class="text-on-surface-variant text-base md:text-lg mb-8 max-w-[420px] mx-auto leading-relaxed animate-fade-up delay-200">
+      Tecnologia de recuperação muscular com <strong class="text-on-surface">42 células de massagem plantar</strong>.
+      Frete grátis para todo Brasil em 24h.
+    </p>
+<div class="w-full max-w-[480px] mx-auto mb-8 rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(45,219,222,0.15)] animate-fade-up delay-300">
+<img alt="Chinelo Recovery — Tecnologia de Recuperação Muscular" class="w-full aspect-[4/3] object-cover" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmI1BWBfITwJt7yKK-6fkHksSfplEW5GftXJLfV5Sh3TyNL4ngv4V_dYxq2J5FiIiEi1wyRNIUiCbNUQ8r7BlThqHXo_ZsNM_U2mqp1JgGNzmcEJ6XWIIsqHLcMPkojgjmX1wtt3dU42WAAi6qcBGhDDqC4mBin228HOTmOK4vSjlS7xjH2zq4ojw4zvWiVGqyOgNecLDTRw6MJMBkOxO3bsD9hGEQgkxI-5kYjgboOthsnJxpYDbMYdvqxebE6nbnk37l4pFLdABz"/>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mb-8 animate-fade-up delay-400">
+<div class="flex items-center gap-1.5 text-[13px] font-semibold text-on-surface/90"><div class="w-7 h-7 bg-recovery-teal/20 rounded-full flex items-center justify-center text-sm text-recovery-teal">⚡</div> Entrega em 24h após PIX</div>
+<div class="flex items-center gap-1.5 text-[13px] font-semibold text-on-surface/90"><div class="w-7 h-7 bg-recovery-teal/20 rounded-full flex items-center justify-center text-sm text-recovery-teal">🛡️</div> Garantia 7 dias</div>
+<div class="flex items-center gap-1.5 text-[13px] font-semibold text-on-surface/90"><div class="w-7 h-7 bg-recovery-teal/20 rounded-full flex items-center justify-center text-sm text-recovery-teal">⭐</div> +4.800 atletas satisfeitos</div>
+</div>
+<a class="block w-full max-w-[400px] mx-auto bg-athletic-green text-deep-charcoal font-bebas text-2xl tracking-[0.08em] text-center py-4 px-6 rounded-[12px] transition-transform duration-150 hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(134,215,174,0.4)] hover:shadow-[0_8px_28px_rgba(134,215,174,0.5)] animate-fade-up delay-400" href="#checkout">QUERO O MEU →</a>
+<p class="text-center text-xs text-on-surface-variant/60 mt-2.5 animate-fade-up delay-400">✅ PIX Seguro    🔒 Site Protegido    📦 Entrega Garantida</p>
+</section>
+<!-- ═══════════ GANCHO JORNALÍSTICO ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-surface-container-low border-t border-surface-bright">
+<div class="max-w-[860px] mx-auto">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-recovery-teal mb-2">Exclusivo</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase text-on-surface mb-8">O Segredo da Recuperação<br/>Muscular no Vestiário</h2>
+<div class="max-w-[600px]">
+<p class="text-lg font-bold text-on-surface border-l-4 border-recovery-teal pl-4 mb-6 leading-tight">"O mesmo protocolo de recuperação usado por atletas de alto rendimento — agora acessível para você."</p>
+<p class="text-[15px] text-on-surface-variant leading-relaxed mb-4">
+          Durante a Copa 2026, câmeras capturam um detalhe pouco notado: nos momentos de descanso,
+          atletas de elite trocam os chuteiros por um chinelo verde-azulado com bolhas salientes.
+          Não é casual. É protocolo.
+        </p>
+<p class="text-[15px] text-on-surface-variant leading-relaxed mb-4">
+          A peça usada por eles é fruto de tecnologia de massagem plantar usada há anos em
+          centros de reabilitação esportiva de alto nível, custando até <strong class="text-athletic-green">R$ 2.000</strong>
+          em versões profissionais. Agora, o mesmo conceito chegou ao mercado consumidor.
+        </p>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-7">
+<img alt="Chinelo recovery no vestiário" class="rounded-xl w-full aspect-[4/3] object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz9XqhozGESyqKR5UA9KkQdBEFUS_PojqyS1ypnm9pLF7OBLvUO4rgHCepAm3_JG5f6Nl5GLeIOnY51gZFkb8M5lD9caBQj07QsRWuf8cGNHEbOVN7yoxFGmUSee9AJQwBv2oZxJnlTqMrkFHgGk16xjH9PKhYalx1KCzuz5pRYQ9cOJXOq7g0SpcgiV_uFQnTqmUXDpZWhMr2yBFtDZbYYpod9coCOynao7asR1ZpU--oYYhkORishdbM-vZ72Qm33f37wlEfiCPp"/>
+<img alt="Detalhe das células de massagem plantar" class="rounded-xl w-full aspect-[4/3] object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlHTBWZRf6qwcc7qaY3tbzw22XZH6JoJg7E35-MG8UoPdu7xaYzlETnsJp8hOnWDsiQiMl9Ouir5j7KSPa3Sve2YZI64SRn4WbCNWrW9RRAzp9z8OyYzb_Kfm4MmcuhX50BnDcgc_5YKOkG4id978rjbgvu8F5RkT7qOxZi3e3gx2NBw9PhaUli95duHxHsDMSjub11vGhOSVqLlwnpiS_SNLeoOKAmIVZJHPa9IcFAwJgeBQVUijSeVNyy-tCpqiU6yw-jioLy3i3"/>
+</div>
+<p class="text-[11px] text-outline mt-2 italic">* Imagens ilustrativas. Chinelo recovery — tecnologia de recuperação muscular.</p>
+</div>
+</section>
+<!-- ═══════════ DOR → SOLUÇÃO ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-deep-charcoal">
+<div class="max-w-[860px] mx-auto">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-recovery-teal mb-2">Por que funciona</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase mb-8">Seu Problema.<br/><span class="text-athletic-green">Nossa Solução.</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container rounded-xl p-5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-athletic-green"></div>
+<div class="text-2xl mb-2.5">😣</div>
+<div class="text-[12px] font-bold text-error tracking-[0.05em] uppercase mb-1.5">Problema</div>
+<div class="font-bebas text-xl text-on-surface mb-2 leading-[1.1]">Dores no pé após o jogo?</div>
+<div class="text-[13px] text-recovery-teal font-semibold">→ 42 células de massagem distribuem a pressão plantar em 360°</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-athletic-green"></div>
+<div class="text-2xl mb-2.5">⏰</div>
+<div class="text-[12px] font-bold text-error tracking-[0.05em] uppercase mb-1.5">Problema</div>
+<div class="font-bebas text-xl text-on-surface mb-2 leading-[1.1]">Recuperação lenta entre treinos?</div>
+<div class="text-[13px] text-recovery-teal font-semibold">→ Estimulação plantar acelera circulação e reduz inflamação em até 3x</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-athletic-green"></div>
+<div class="text-2xl mb-2.5">👟</div>
+<div class="text-[12px] font-bold text-error tracking-[0.05em] uppercase mb-1.5">Problema</div>
+<div class="font-bebas text-xl text-on-surface mb-2 leading-[1.1]">Sola comum não te serve mais?</div>
+<div class="text-[13px] text-recovery-teal font-semibold">→ Tecnologia de amortecimento adaptativo protege tornozelo e joelho</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-athletic-green"></div>
+<div class="text-2xl mb-2.5">💸</div>
+<div class="text-[12px] font-bold text-error tracking-[0.05em] uppercase mb-1.5">Problema</div>
+<div class="font-bebas text-xl text-on-surface mb-2 leading-[1.1]">Preço absurdo em loja?</div>
+<div class="text-[13px] text-recovery-teal font-semibold">→ Direto da fábrica, sem intermediário. Mesmo nível por muito menos</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════ BENEFÍCIOS / CIÊNCIA ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-surface-container border-y border-surface-bright relative">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(45,219,222,0.03)_0%,transparent_70%)]"></div>
+<div class="max-w-[860px] mx-auto relative z-10">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-recovery-teal mb-2">A Ciência</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase text-on-surface mb-4">Como funciona a<br/>Tecnologia de Recuperação</h2>
+<p class="text-[15px] text-on-surface-variant max-w-[480px] mb-10 leading-relaxed">Cada detalhe foi desenvolvido com base em pesquisas de reabilitação esportiva.</p>
+<ul class="flex flex-col gap-5 list-none">
+<li class="flex gap-3.5 items-start">
+<div class="shrink-0 w-9 h-9 bg-recovery-teal/20 border border-recovery-teal/50 text-recovery-teal font-bebas text-lg rounded-full flex items-center justify-center">01</div>
+<div>
+<strong class="block text-[15px] font-bold text-on-surface mb-1">42 Células de Massagem Plantar</strong>
+<span class="text-[13px] text-on-surface-variant leading-relaxed">Distribuídas estrategicamente para estimular os principais pontos de pressão do pé, ativando a circulação sanguínea durante o repouso.</span>
+</div>
+</li>
+<li class="flex gap-3.5 items-start">
+<div class="shrink-0 w-9 h-9 bg-recovery-teal/20 border border-recovery-teal/50 text-recovery-teal font-bebas text-lg rounded-full flex items-center justify-center">02</div>
+<div>
+<strong class="block text-[15px] font-bold text-on-surface mb-1">Amortecimento Adaptativo de Alta Densidade</strong>
+<span class="text-[13px] text-on-surface-variant leading-relaxed">A espuma especial molda ao formato do seu pé, reduzindo o impacto nas articulações do tornozelo, joelho e quadril.</span>
+</div>
+</li>
+<li class="flex gap-3.5 items-start">
+<div class="shrink-0 w-9 h-9 bg-recovery-teal/20 border border-recovery-teal/50 text-recovery-teal font-bebas text-lg rounded-full flex items-center justify-center">03</div>
+<div>
+<strong class="block text-[15px] font-bold text-on-surface mb-1">Dreno Lateral de Calor</strong>
+<span class="text-[13px] text-on-surface-variant leading-relaxed">Ventilação passiva nas laterais mantém a temperatura ideal para que os tecidos musculares se recuperem com eficiência.</span>
+</div>
+</li>
+<li class="flex gap-3.5 items-start">
+<div class="shrink-0 w-9 h-9 bg-recovery-teal/20 border border-recovery-teal/50 text-recovery-teal font-bebas text-lg rounded-full flex items-center justify-center">04</div>
+<div>
+<strong class="block text-[15px] font-bold text-on-surface mb-1">Design Universal 35–43</strong>
+<span class="text-[13px] text-on-surface-variant leading-relaxed">Ajuste em qualquer tamanho de pé com a tira regulável. Serve para toda a família.</span>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- ═══════════ PROPOSTA DE VALOR ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-surface-container-high">
+<div class="max-w-[860px] mx-auto text-center">
+<p class="text-2xl md:text-3xl font-bebas leading-tight uppercase text-on-surface mb-5">
+        A tecnologia de um chinelo de <em class="text-recovery-teal not-italic">R$ 2.000</em>, agora acessível para o seu dia a dia.
+      </p>
+<div class="flex items-center justify-center gap-4 flex-wrap mb-3">
+<span class="text-xl text-outline-variant line-through">R$ 299</span>
+<span class="font-bebas text-5xl text-athletic-green leading-none">R$ 189</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-6">💳 ou em até 3x sem juros no cartão</p>
+<a class="block w-full max-w-[400px] mx-auto bg-athletic-green text-deep-charcoal font-bebas text-2xl tracking-[0.08em] text-center py-4 px-6 rounded-[12px] transition-transform duration-150 hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(134,215,174,0.4)] hover:shadow-[0_8px_28px_rgba(134,215,174,0.5)]" href="#checkout">GARANTIR MINHA UNIDADE →</a>
+</div>
+</section>
+<!-- ═══════════ OFERTA + ESCASSEZ ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-deep-charcoal text-center" id="oferta">
+<div class="max-w-[860px] mx-auto">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-canary-yellow mb-2">Oferta por tempo limitado</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase text-on-surface mb-7">Esta oferta<br/>encerra em:</h2>
+<div class="flex gap-2 mb-7 justify-center">
+<div class="text-center bg-surface-container border border-outline-variant rounded-lg py-3 px-2.5 min-w-[64px]">
+<div class="font-bebas text-4xl leading-none text-canary-yellow" id="t-h">23</div>
+<div class="text-[10px] text-on-surface-variant/50 tracking-[0.1em] uppercase">Horas</div>
+</div>
+<div class="text-center bg-surface-container border border-outline-variant rounded-lg py-3 px-2.5 min-w-[64px]">
+<div class="font-bebas text-4xl leading-none text-canary-yellow" id="t-m">59</div>
+<div class="text-[10px] text-on-surface-variant/50 tracking-[0.1em] uppercase">Min</div>
+</div>
+<div class="text-center bg-surface-container border border-outline-variant rounded-lg py-3 px-2.5 min-w-[64px]">
+<div class="font-bebas text-4xl leading-none text-canary-yellow" id="t-s">59</div>
+<div class="text-[10px] text-on-surface-variant/50 tracking-[0.1em] uppercase">Seg</div>
+</div>
+</div>
+<div class="max-w-[400px] mx-auto mb-6">
+<div class="flex justify-between text-[13px] text-on-surface-variant mb-2">
+<span>Estoque disponível</span>
+<strong class="text-canary-yellow">⚠️ Restam apenas 23 unidades</strong>
+</div>
+<div class="h-2.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[23%] bg-canary-yellow rounded-full animate-pulse-bar"></div>
+</div>
+</div>
+<a class="block w-full max-w-[400px] mx-auto bg-canary-yellow text-deep-charcoal font-bebas text-2xl tracking-[0.08em] text-center py-4 px-6 rounded-[12px] transition-transform duration-150 hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(231,196,51,0.4)] hover:shadow-[0_8px_28px_rgba(231,196,51,0.5)]" href="#checkout">COMPRAR AGORA COM DESCONTO →</a>
+<p class="text-on-surface-variant/40 text-xs mt-2.5">🏆 Badge: Lançamento Copa 2026</p>
+</div>
+</section>
+<!-- ═══════════ PROVA SOCIAL ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-surface-container-low border-t border-surface-bright">
+<div class="max-w-[860px] mx-auto">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-recovery-teal mb-2">Avaliações verificadas</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase text-on-surface mb-8">O que nossos<br/>clientes dizem</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border-l-4 border-recovery-teal">
+<div class="text-sm mb-2 text-canary-yellow">⭐⭐⭐⭐⭐</div>
+<p class="text-sm text-on-surface-variant mb-3 leading-relaxed italic">"Uso depois do futevôlei na praia, cara. Outro nível de recuperação. Meu tornozelo parou de inchar depois dos jogos."</p>
+<div class="text-xs font-bold text-recovery-teal">Rafael M. — São Paulo, SP</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border-l-4 border-recovery-teal">
+<div class="text-sm mb-2 text-canary-yellow">⭐⭐⭐⭐⭐</div>
+<p class="text-sm text-on-surface-variant mb-3 leading-relaxed italic">"Comprei pra meu marido que joga futebol no fim de semana. Ele não tira mais do pé. Chegou em menos de 24h aqui em Curitiba."</p>
+<div class="text-xs font-bold text-recovery-teal">Camila R. — Curitiba, PR</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border-l-4 border-recovery-teal">
+<div class="text-sm mb-2 text-canary-yellow">⭐⭐⭐⭐⭐</div>
+<p class="text-sm text-on-surface-variant mb-3 leading-relaxed italic">"Sou personal trainer e recomendo pra todos meus alunos. As bolinhas na sola fazem diferença real na recuperação pós-treino."</p>
+<div class="text-xs font-bold text-recovery-teal">Diego F. — Belo Horizonte, MG</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border-l-4 border-recovery-teal">
+<div class="text-sm mb-2 text-canary-yellow">⭐⭐⭐⭐⭐</div>
+<p class="text-sm text-on-surface-variant mb-3 leading-relaxed italic">"Trabalho de pé o dia todo como enfermeira. Quando chego em casa coloco esse chinelo e parece que saiu todo o cansaço do pé."</p>
+<div class="text-xs font-bold text-recovery-teal">Jéssica L. — Recife, PE</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border-l-4 border-recovery-teal">
+<div class="text-sm mb-2 text-canary-yellow">⭐⭐⭐⭐⭐</div>
+<p class="text-sm text-on-surface-variant mb-3 leading-relaxed italic">"Vi nas redes o pessoal usando na concentração e fui atrás. Vale cada centavo. Qualidade impressionante pelo preço."</p>
+<div class="text-xs font-bold text-recovery-teal">Thiago B. — Porto Alegre, RS</div>
+</div>
+<div class="bg-surface-container rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border-l-4 border-recovery-teal">
+<div class="text-sm mb-2 text-canary-yellow">⭐⭐⭐⭐⭐</div>
+<p class="text-sm text-on-surface-variant mb-3 leading-relaxed italic">"Comprei desconfiado mas a garantia de 7 dias me convenceu. Não devolvi não, pelo contrário, já comprei outro pra meu filho."</p>
+<div class="text-xs font-bold text-recovery-teal">Marcos A. — Goiânia, GO</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-deep-charcoal border-t border-surface-bright">
+<div class="max-w-[860px] mx-auto">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-recovery-teal mb-2">Dúvidas</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase text-on-surface mb-8">Perguntas<br/>Frequentes</h2>
+<div id="faq-list">
+<div class="faq-item group border-b border-outline-variant">
+<button class="w-full bg-transparent border-none text-left py-4.5 text-[15px] font-semibold text-on-surface cursor-pointer flex justify-between items-center gap-3">
+            Tem nota fiscal?
+            <span class="shrink-0 w-6 h-6 bg-surface-container-high text-recovery-teal rounded-full flex items-center justify-center text-base transition-transform duration-250 group-[.open]:rotate-45">+</span>
+</button>
+<div class="hidden text-sm text-on-surface-variant pb-4.5 leading-relaxed group-[.open]:block">Sim! A NF-e é emitida automaticamente e enviada para o seu e-mail após a confirmação do pagamento.</div>
+</div>
+<div class="faq-item group border-b border-outline-variant">
+<button class="w-full bg-transparent border-none text-left py-4.5 text-[15px] font-semibold text-on-surface cursor-pointer flex justify-between items-center gap-3">
+            Quanto tempo demora a entrega?
+            <span class="shrink-0 w-6 h-6 bg-surface-container-high text-recovery-teal rounded-full flex items-center justify-center text-base transition-transform duration-250 group-[.open]:rotate-45">+</span>
+</button>
+<div class="hidden text-sm text-on-surface-variant pb-4.5 leading-relaxed group-[.open]:block">Para todo o Brasil, despachamos em até 24 horas após a confirmação do PIX. O prazo de entrega varia de 2 a 7 dias úteis dependendo da sua região.</div>
+</div>
+<div class="faq-item group border-b border-outline-variant">
+<button class="w-full bg-transparent border-none text-left py-4.5 text-[15px] font-semibold text-on-surface cursor-pointer flex justify-between items-center gap-3">
+            Serve para qualquer tamanho de pé?
+            <span class="shrink-0 w-6 h-6 bg-surface-container-high text-recovery-teal rounded-full flex items-center justify-center text-base transition-transform duration-250 group-[.open]:rotate-45">+</span>
+</button>
+<div class="hidden text-sm text-on-surface-variant pb-4.5 leading-relaxed group-[.open]:block">Sim! O design universal com tira regulável serve confortavelmente para pés entre os tamanhos 35 e 43.</div>
+</div>
+<div class="faq-item group border-b border-outline-variant">
+<button class="w-full bg-transparent border-none text-left py-4.5 text-[15px] font-semibold text-on-surface cursor-pointer flex justify-between items-center gap-3">
+            E se eu não gostar?
+            <span class="shrink-0 w-6 h-6 bg-surface-container-high text-recovery-teal rounded-full flex items-center justify-center text-base transition-transform duration-250 group-[.open]:rotate-45">+</span>
+</button>
+<div class="hidden text-sm text-on-surface-variant pb-4.5 leading-relaxed group-[.open]:block">Garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, basta entrar em contato e realizamos o reembolso total via PIX, sem perguntas.</div>
+</div>
+<div class="faq-item group border-b border-outline-variant">
+<button class="w-full bg-transparent border-none text-left py-4.5 text-[15px] font-semibold text-on-surface cursor-pointer flex justify-between items-center gap-3">
+            Qual a procedência do produto?
+            <span class="shrink-0 w-6 h-6 bg-surface-container-high text-recovery-teal rounded-full flex items-center justify-center text-base transition-transform duration-250 group-[.open]:rotate-45">+</span>
+</button>
+<div class="hidden text-sm text-on-surface-variant pb-4.5 leading-relaxed group-[.open]:block">Tecnologia importada com as mesmas especificações utilizadas por atletas de alto rendimento. Produto regularizado e com nota fiscal.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════ MATRIZ DE CHECKOUT ═══════════ -->
+<section class="py-16 px-5 md:py-20 md:px-10 bg-surface-container-low" id="checkout">
+<div class="max-w-[860px] mx-auto">
+<div class="text-[11px] font-bold tracking-[0.15em] uppercase text-recovery-teal mb-2">Escolha onde comprar</div>
+<h2 class="font-bebas text-3xl md:text-5xl leading-none uppercase text-on-surface mb-4">Compre no Canal<br/>que você Confia</h2>
+<p class="text-[15px] text-on-surface-variant max-w-[480px] mb-10 leading-relaxed">Escolha a plataforma onde se sentir mais seguro para realizar sua compra.</p>
+<div class="flex flex-col gap-3.5 mt-8">
+<!-- Botão 1: Site Oficial -->
+<a class="flex items-center justify-between p-4.5 rounded-[12px] border-2 border-athletic-green/30 bg-athletic-green text-deep-charcoal font-bold text-[15px] cursor-pointer transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(134,215,174,0.2)] no-underline" href="SEU_LINK_NUVEMSHOP_AQUI" target="_blank">
+<span class="text-xl">🏪</span>
+<div class="flex-1 px-3">
+            Comprar no Site Oficial
+            <small class="block text-[11px] font-normal opacity-80 mt-0.5">Desconto exclusivo no PIX + frete grátis</small>
+</div>
+<span class="text-lg opacity-60">→</span>
+</a>
+<!-- Botão 2: Shopee -->
+<a class="flex items-center justify-between p-4.5 rounded-[12px] border-2 border-transparent bg-surface-container text-on-surface font-bold text-[15px] cursor-pointer transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] no-underline hover:border-recovery-teal/30" href="SEU_LINK_SHOPEE_AQUI" target="_blank">
+<span class="text-xl">🛍️</span>
+<div class="flex-1 px-3">
+            Comprar na Shopee
+            <small class="block text-[11px] font-normal text-on-surface-variant mt-0.5">Garantia Shopee — selecione "Modelo Aero-Green" no catálogo</small>
+</div>
+<span class="text-lg opacity-60">→</span>
+</a>
+<!-- Botão 3: Mercado Livre -->
+<a class="flex items-center justify-between p-4.5 rounded-[12px] border-2 border-transparent bg-surface-container text-on-surface font-bold text-[15px] cursor-pointer transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] no-underline hover:border-recovery-teal/30" href="SEU_LINK_MERCADOLIVRE_AQUI" target="_blank">
+<span class="text-xl">📦</span>
+<div class="flex-1 px-3">
+            Comprar no Mercado Livre
+            <small class="block text-[11px] font-normal text-on-surface-variant mt-0.5">Proteção Mercado Pago + entrega full</small>
+</div>
+<span class="text-lg opacity-60">→</span>
+</a>
+</div>
+<div class="flex justify-center gap-5 flex-wrap mt-7 pt-6 border-t border-surface-bright">
+<div class="flex items-center gap-1.5 text-[12px] font-semibold text-on-surface-variant"><span class="text-lg">🔒</span> PIX Seguro</div>
+<div class="flex items-center gap-1.5 text-[12px] font-semibold text-on-surface-variant"><span class="text-lg">🛡️</span> Site Protegido</div>
+<div class="flex items-center gap-1.5 text-[12px] font-semibold text-on-surface-variant"><span class="text-lg">📦</span> Entrega Garantida</div>
+</div>
+</div>
+</section>
+<!-- ═══════════ GARANTIA + CTA FINAL ═══════════ -->
+<section class="bg-surface-container-high text-center py-12 px-5">
+<div class="text-5xl mb-4 text-recovery-teal">🛡️</div>
+<h2 class="font-bebas text-3xl md:text-5xl uppercase text-canary-yellow mb-3">Garantia Total<br/>de 7 Dias</h2>
+<p class="text-[15px] text-on-surface-variant max-w-[360px] mx-auto mb-8 leading-relaxed">
+      Compre sem risco. Se por qualquer motivo você não ficar satisfeito,
+      devolvemos 100% do seu dinheiro via PIX. Sem burocracia, sem perguntas.
+    </p>
+<a class="block w-full max-w-[400px] mx-auto bg-athletic-green text-deep-charcoal font-bebas text-2xl tracking-[0.08em] text-center py-4 px-6 rounded-[12px] transition-transform duration-150 hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(134,215,174,0.4)] hover:shadow-[0_8px_28px_rgba(134,215,174,0.5)]" href="#checkout">COMPRAR AGORA COM DESCONTO →</a>
+<p class="text-on-surface-variant/40 text-xs mt-4">
+      ⚡ Oferta por tempo limitado  |  Frete grátis Brasil
+    </p>
+</section>
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="bg-surface-container-lowest text-on-surface-variant/40 text-center py-6 px-5 text-xs leading-relaxed border-t border-surface-bright">
+<p>© 2026 Chinelo Recovery — Tecnologia de Recuperação Muscular</p>
+<p class="mt-1.5">Este site não possui vínculo com clubes, federações ou seleções nacionais.</p>
+<p class="mt-1.5">
+<a class="text-on-surface-variant/30 hover:text-on-surface-variant/60 transition-colors" href="#">Política de Privacidade</a>  | 
+      <a class="text-on-surface-variant/30 hover:text-on-surface-variant/60 transition-colors" href="#">Termos de Uso</a>  | 
+      <a class="text-on-surface-variant/30 hover:text-on-surface-variant/60 transition-colors" href="#">Trocas e Devoluções</a>
+</p>
+</footer>
+<!-- ═══════════ FLOATING CTA ═══════════ -->
+<div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[200] hidden md:block" id="float-cta">
+<a class="block bg-athletic-green text-deep-charcoal font-bebas text-lg tracking-[0.08em] text-center py-4 px-8 rounded-[12px] transition-transform duration-150 hover:-translate-y-0.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] whitespace-nowrap" href="#checkout">🛒 COMPRAR COM DESCONTO →</a>
+</div>
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+    // ── TIMER PERSISTENTE (localStorage) ──
+    (function() {
+      const KEY = 'recovery_timer_end';
+      const DURATION = 24 * 60 * 60 * 1000; // 24h em ms
+
+      let endTime = localStorage.getItem(KEY);
+      if (!endTime || Date.now() > Number(endTime)) {
+        endTime = Date.now() + DURATION;
+        localStorage.setItem(KEY, endTime);
+      }
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const diff = Number(endTime) - Date.now();
+        if (diff <= 0) {
+          localStorage.removeItem(KEY);
+          document.getElementById('t-h').textContent = '00';
+          document.getElementById('t-m').textContent = '00';
+          document.getElementById('t-s').textContent = '00';
+          return;
+        }
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('t-h').textContent = pad(h);
+        document.getElementById('t-m').textContent = pad(m);
+        document.getElementById('t-s').textContent = pad(s);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // ── FAQ ACCORDION ──
+    document.querySelectorAll('.faq-item button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── FLOATING CTA: aparece após scroll ──
+    var floatCta = document.getElementById('float-cta');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 600) {
+        floatCta.style.display = 'block';
+      } else {
+        floatCta.style.display = 'none';
+      }
+    });
+  </script>
+</body></html>
