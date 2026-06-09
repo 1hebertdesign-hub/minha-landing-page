@@ -214,6 +214,64 @@
     }
     .animate-pulse-bar { animation: pulse-bar 2s ease-in-out infinite; }
   
+  
+    /* Estilo do Relógio Flip Customizado */
+    .flip-clock {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .flip-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .flip-card {
+      position: relative;
+      background-color: #1c1b1b;
+      border: 1px solid #3f4943;
+      border-radius: 0.75rem;
+      width: 75px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px -4px rgba(231,196,51,0.1);
+      overflow: hidden;
+    }
+    .flip-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(0, 0, 0, 0.7);
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    .flip-card span {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 3.5rem;
+      color: #e7c433;
+      line-height: 1;
+      z-index: 5;
+    }
+    .flip-label {
+      font-size: 0.75rem;
+      color: #bec9c1;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.5rem;
+    }
+    @media (max-width: 640px) {
+      .flip-card { width: 65px; height: 80px; }
+      .flip-card span { font-size: 3rem; }
+      .flip-clock { gap: 8px; }
+    }
+
   </style>
 </head>
 
@@ -670,53 +728,54 @@
 
 
 <!-- ═══════════ PROPOSTA DE VALOR ═══════════ -->
-<section class="relative bg-section-gradient py-16 sm:py-20 lg:py-24">
+<section class="relative bg-brand-surface py-10 sm:py-14">
   <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent"></div>
   <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-    <p class="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight uppercase text-brand-text mb-6">
-      A tecnologia de um chinelo de <span class="text-brand-tertiary">R$ 2.000</span>, agora acessível para o seu dia a dia.
-    </p>
-    <div class="flex items-center justify-center gap-4 flex-wrap mb-4">
-      <span class="text-xl text-brand-text-muted line-through">De R$ 299</span>
-      <span class="font-display text-6xl text-brand-primary leading-none">Por R$ 189</span>
-    </div>
-    <p class="text-sm text-brand-text-muted mb-8">💳 ou em até 12x no cartão</p>
-    
-    <a href="#checkout"
-       class="flex items-center justify-center gap-3 max-w-[400px] mx-auto
-              bg-brand-primary text-brand-on-primary rounded-btn
-              py-5 px-8 text-xl font-display uppercase tracking-wider font-bold
-              hover:bg-brand-primary/90 hover:shadow-glow-lg
-              active:scale-[0.98] transition-all duration-300 ease-out">
-      GARANTIR MINHA UNIDADE &rarr;
-    </a>
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight uppercase text-brand-text">
+      A tecnologia usada pelos <span class="text-brand-secondary">atletas da seleção</span>, <span class="text-brand-primary">agora acessível</span> pra seu dia a dia.
+    </h2>
   </div>
 </section>
 
-<!-- ═══════════ OFERTA + ESCASSEZ ═══════════ -->
-<section class="relative bg-brand-bg py-16 sm:py-20 lg:py-24 text-center" id="oferta">
-  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-secondary/20 to-transparent"></div>
+<!-- ═══════════ OFERTA + ESCASSEZ (COM RELÓGIO FLIP) ═══════════ -->
+<section class="relative bg-brand-surface pb-16 sm:pb-20 lg:pb-24 text-center" id="oferta">
   <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-    <div class="inline-flex items-center gap-1.5 px-4 py-1.5 mb-6 bg-brand-error/10 border border-brand-error/30 rounded-full text-brand-error text-xs font-semibold uppercase tracking-wider">
+    <div class="inline-flex items-center gap-2 mb-6 w-fit
+                bg-brand-error/15 border border-brand-error/40 rounded-full
+                px-4 py-1.5 text-brand-error text-xs font-semibold uppercase tracking-wider
+                animate-pulse">
+      <i class="ti ti-flame text-sm"></i>
       Oferta Exclusiva
     </div>
-    <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mb-10">Esta oferta encerra em:</h2>
     
-    <div class="flex gap-4 mb-10 justify-center">
-      <div class="text-center bg-brand-surface border border-brand-outline rounded-xl py-4 px-3 min-w-[80px] shadow-glow-yellow/10">
-        <div class="font-display text-5xl leading-none text-brand-secondary" id="t-h">23</div>
-        <div class="text-[11px] text-brand-text-muted tracking-[0.1em] uppercase mt-1">Horas</div>
+    <h2 class="font-display text-4xl lg:text-5xl leading-none uppercase text-brand-text mb-4">
+      Oferta válida até o próximo jogo do Brasil
+    </h2>
+    <p class="text-brand-secondary text-lg sm:text-xl font-bold uppercase tracking-wide mb-8 flex items-center justify-center gap-2 flex-wrap">
+      🇧🇷 Brasil x Marrocos 🇲🇦 <span class="text-brand-text-muted font-normal block sm:inline">| 19:00 • 13 Jun 2026</span>
+    </p>
+    
+    <!-- Flip Clock HTML -->
+    <div class="flip-clock">
+      <div class="flip-unit">
+        <div class="flip-card"><span id="t-d">00</span></div>
+        <div class="flip-label">Dias</div>
       </div>
-      <div class="text-center bg-brand-surface border border-brand-outline rounded-xl py-4 px-3 min-w-[80px] shadow-glow-yellow/10">
-        <div class="font-display text-5xl leading-none text-brand-secondary" id="t-m">59</div>
-        <div class="text-[11px] text-brand-text-muted tracking-[0.1em] uppercase mt-1">Min</div>
+      <div class="flip-unit">
+        <div class="flip-card"><span id="t-h">00</span></div>
+        <div class="flip-label">Horas</div>
       </div>
-      <div class="text-center bg-brand-surface border border-brand-outline rounded-xl py-4 px-3 min-w-[80px] shadow-glow-yellow/10">
-        <div class="font-display text-5xl leading-none text-brand-secondary" id="t-s">59</div>
-        <div class="text-[11px] text-brand-text-muted tracking-[0.1em] uppercase mt-1">Seg</div>
+      <div class="flip-unit">
+        <div class="flip-card"><span id="t-m">00</span></div>
+        <div class="flip-label">Min</div>
+      </div>
+      <div class="flip-unit">
+        <div class="flip-card"><span id="t-s">00</span></div>
+        <div class="flip-label">Seg</div>
       </div>
     </div>
     
+    <!-- Barra de Escassez -->
     <div class="max-w-[450px] mx-auto mb-8 bg-brand-surface border border-brand-outline rounded-xl p-5 text-left">
       <div class="flex justify-between items-center text-sm mb-3">
         <span class="text-brand-error font-semibold flex items-center gap-1.5"><i class="ti ti-alert-triangle text-base"></i> Restam apenas 23 unidades</span>
@@ -727,17 +786,17 @@
       </div>
     </div>
     
+    <!-- Novo Botão Movido -->
     <a href="#checkout"
        class="flex items-center justify-center gap-3 max-w-[450px] mx-auto
-              bg-brand-secondary text-brand-bg rounded-btn
+              bg-brand-primary text-brand-on-primary rounded-btn
               py-5 px-8 text-xl font-display uppercase tracking-wider font-bold
-              hover:bg-brand-secondary/90 hover:shadow-glow-yellow
+              hover:bg-brand-primary/90 shadow-glow
               active:scale-[0.98] transition-all duration-300 ease-out">
-      COMPRAR AGORA COM DESCONTO &rarr;
+      &rarr; GARANTIR O MEU
     </a>
   </div>
 </section>
-
 <!-- ═══════════ PROVA SOCIAL ═══════════ -->
 <section class="relative bg-section-gradient py-16 sm:py-20 lg:py-24">
   <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-tertiary/20 to-transparent"></div>
@@ -938,14 +997,14 @@
 </footer>
 
 <!-- ═══════════ FLOATING CTA ═══════════ -->
-<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] hidden lg:block" id="float-cta" style="display:none;">
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] w-[90%] max-w-[400px]" id="float-cta">
   <a href="#checkout"
-     class="flex items-center justify-center gap-3
-            bg-brand-primary text-brand-on-primary rounded-full
+     class="flex items-center justify-center gap-3 w-full
+            bg-[#e7c433] text-[#131313] rounded-full
             py-3 px-8 text-lg font-display uppercase tracking-wider font-bold
-            hover:bg-brand-primary/90 shadow-glow-lg
+            hover:bg-[#e7c433]/90 shadow-glow-yellow
             active:scale-[0.98] transition-all duration-300 ease-out whitespace-nowrap">
-    <i class="ti ti-shopping-cart text-xl"></i> COMPRAR COM DESCONTO &rarr;
+    <i class="ti ti-shopping-cart text-xl"></i> COMPRAR COM DESCONTO
   </a>
 </div>
 
@@ -1145,39 +1204,42 @@
 </script>
 
 <script>
-// ── TIMER PERSISTENTE (localStorage) ──
-    (function() {
-      const KEY = 'recovery_timer_end';
-      const DURATION = 24 * 60 * 60 * 1000; // 24h em ms
+// ── TIMER PARA O JOGO DO BRASIL (13 JUN 2026 19:00) ──
+(function() {
+  // Data Alvo (formato ISO com fuso horário de Brasília -03:00)
+  const targetDate = new Date('2026-06-13T19:00:00-03:00').getTime();
 
-      let endTime = localStorage.getItem(KEY);
-      if (!endTime || Date.now() > Number(endTime)) {
-        endTime = Date.now() + DURATION;
-        localStorage.setItem(KEY, endTime);
-      }
+  function pad(n) { return String(n).padStart(2, '0'); }
 
-      function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const now = Date.now();
+    const diff = targetDate - now;
 
-      function tick() {
-        const diff = Number(endTime) - Date.now();
-        if (diff <= 0) {
-          localStorage.removeItem(KEY);
-          document.getElementById('t-h').textContent = '00';
-          document.getElementById('t-m').textContent = '00';
-          document.getElementById('t-s').textContent = '00';
-          return;
-        }
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('t-h').textContent = pad(h);
-        document.getElementById('t-m').textContent = pad(m);
-        document.getElementById('t-s').textContent = pad(s);
-      }
+    // Se o jogo já começou ou passou, zera tudo
+    if (diff <= 0) {
+      if (document.getElementById('t-d')) document.getElementById('t-d').textContent = '00';
+      document.getElementById('t-h').textContent = '00';
+      document.getElementById('t-m').textContent = '00';
+      document.getElementById('t-s').textContent = '00';
+      return;
+    }
 
-      tick();
-      setInterval(tick, 1000);
-    })();
+    // Cálculos de tempo
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Atualiza o HTML (ajustado para incluir dias, se o elemento existir)
+    if (document.getElementById('t-d')) document.getElementById('t-d').textContent = pad(d);
+    document.getElementById('t-h').textContent = pad(h);
+    document.getElementById('t-m').textContent = pad(m);
+    document.getElementById('t-s').textContent = pad(s);
+  }
+  
+  tick();
+  setInterval(tick, 1000);
+})();
 
     // ── FAQ ACCORDION ──
     document.querySelectorAll('.faq-item button').forEach(function(btn) {
