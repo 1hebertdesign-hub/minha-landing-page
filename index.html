@@ -255,10 +255,10 @@
     </div>
     <div id="carousel-track" class="relative w-full h-full">
       <video src="1.mp4" autoplay muted playsinline loop class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 z-10"></video>
-      <img src="1.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 1">
       <img src="2.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 2">
       <img src="3.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 3">
       <img src="4.png" class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Foto 4">
+      <video src="5.mp4" muted playsinline loop class="carousel-item absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0"></video>
     </div>
     
     <!-- Fade esmanhecido na base do vídeo corrigido -->
@@ -430,7 +430,17 @@
 
           <!-- Video Exclusivo B2 -->
           <div class="mt-10 sm:mt-12 w-full">
-            <video src="Exclusivo B2.mp4" autoplay loop muted playsinline class="w-full h-auto rounded-[20px] lg:rounded-[24px] object-cover border border-brand-outline/40 shadow-2xl" onerror="this.style.display='none'"></video>
+            <div class="relative overflow-hidden rounded-[20px] lg:rounded-[24px] p-[2px] bg-brand-outline shadow-glow-yellow transition-shadow duration-500 group">
+              <!-- Led Glow Spinner -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] aspect-square z-0 pointer-events-none">
+                <div class="w-full h-full animate-[spin_4s_linear_infinite]" style="background: conic-gradient(from 0deg, transparent 70%, #e7c433 100%); filter: blur(4px);"></div>
+              </div>
+              
+              <!-- Inner Video -->
+              <div class="relative z-10 w-full h-full bg-brand-bg rounded-[18px] lg:rounded-[22px] overflow-hidden">
+                <video src="Exclusivo B2.mp4" autoplay loop muted playsinline class="w-full h-auto object-cover" onerror="this.style.display='none'"></video>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -939,7 +949,202 @@
   </a>
 </div>
 
-  <script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // CAROUSEL 1 (Principal)
+    // ==========================================
+    const items = document.querySelectorAll('.carousel-item');
+    const progressBars = document.querySelectorAll('.progress-bar');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const throbberCircle = document.getElementById('video-progress-circle') || document.querySelector('circle[stroke-dasharray]');
+    const pauseIcon = document.getElementById('video-pause-icon');
+    const playIcon = document.getElementById('video-play-icon');
+    const circumference = 138.23;
+    
+    let currentIndex = 0;
+    let isPaused = false;
+    let progress = 0;
+    let animationFrame;
+    let lastTime = 0;
+    let currentDuration = 5000;
+
+    function startCarousel(timestamp) {
+      if (!lastTime) lastTime = timestamp;
+      const deltaTime = timestamp - lastTime;
+      lastTime = timestamp;
+
+      if (!isPaused && items.length > 0) {
+        progress += (deltaTime / currentDuration) * 100;
+        
+        if (progress >= 100) {
+          progress = 100;
+          if(progressBars[currentIndex]) progressBars[currentIndex].style.width = '100%';
+          goToNext();
+        } else {
+          if(progressBars[currentIndex]) progressBars[currentIndex].style.width = `${progress}%`;
+        }
+        if (throbberCircle) {
+          throbberCircle.style.strokeDashoffset = circumference - (progress / 100 * circumference);
+        }
+      }
+      animationFrame = requestAnimationFrame(startCarousel);
+    }
+
+    function goToNext() {
+      if (items.length === 0) return;
+      items[currentIndex].classList.remove('opacity-100', 'z-10');
+      items[currentIndex].classList.add('opacity-0', 'z-0');
+      if(items[currentIndex].tagName === 'VIDEO') items[currentIndex].pause();
+
+      currentIndex = (currentIndex + 1) % items.length;
+
+      if (currentIndex === 0) {
+        progressBars.forEach(bar => bar.style.width = '0%');
+      }
+
+      items[currentIndex].classList.remove('opacity-0', 'z-0');
+      items[currentIndex].classList.add('opacity-100', 'z-10');
+      
+      progress = 0;
+      
+      if(items[currentIndex].tagName === 'VIDEO') {
+        const vid = items[currentIndex];
+        vid.currentTime = 0;
+        vid.play();
+        currentDuration = (vid.duration && !isNaN(vid.duration)) ? vid.duration * 1000 : 8000;
+      } else {
+        currentDuration = 6000;
+      }
+    }
+
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        isPaused = !isPaused;
+        if (items.length > 0 && items[currentIndex].tagName === 'VIDEO') {
+          isPaused ? items[currentIndex].pause() : items[currentIndex].play();
+        }
+        if (pauseIcon && playIcon) {
+          if (isPaused) {
+            pauseIcon.style.display = 'none';
+            playIcon.style.display = 'block';
+          } else {
+            pauseIcon.style.display = 'block';
+            playIcon.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    if(items.length > 0) {
+      if (items[0].tagName === 'VIDEO') {
+        items[0].addEventListener('loadedmetadata', () => {
+          currentDuration = items[0].duration * 1000;
+        });
+      }
+      animationFrame = requestAnimationFrame(startCarousel);
+    }
+
+    // ==========================================
+    // CAROUSEL 2 (Secundário)
+    // ==========================================
+    const secItems = document.querySelectorAll('.secondary-carousel-item');
+    const secPlayBtn = document.getElementById('sec-play-pause-btn');
+    const secCircle = document.getElementById('sec-video-progress-circle') || (secPlayBtn ? secPlayBtn.querySelector('circle[stroke-dasharray]') : null);
+    const secPauseIcon = document.getElementById('sec-video-pause-icon');
+    const secPlayIcon = document.getElementById('sec-video-play-icon');
+    
+    let secIndex = 0;
+    let secPaused = false;
+    let secProgress = 0;
+    let secLastTime = 0;
+    let secDuration = 6000;
+    let secAnimFrame;
+
+    function getSecVid(el) {
+      if (!el) return null;
+      return el.tagName === 'VIDEO' ? el : el.querySelector('video');
+    }
+
+    if (secItems.length > 0) {
+      const firstSecVid = getSecVid(secItems[0]);
+      if (firstSecVid) {
+        firstSecVid.addEventListener('loadedmetadata', () => {
+            secDuration = firstSecVid.duration * 1000;
+        });
+      }
+    }
+
+    function startSecCarousel(timestamp) {
+      if (!secLastTime) secLastTime = timestamp;
+      const delta = timestamp - secLastTime;
+      secLastTime = timestamp;
+
+      if (!secPaused && secItems.length > 0) {
+        secProgress += (delta / secDuration) * 100;
+        if (secProgress >= 100) {
+          secProgress = 100;
+          goNextSec();
+        }
+        if (secCircle) {
+          secCircle.style.strokeDashoffset = circumference - (secProgress / 100 * circumference);
+        }
+      }
+      secAnimFrame = requestAnimationFrame(startSecCarousel);
+    }
+
+    function goNextSec() {
+      if (secItems.length === 0) return;
+      secItems[secIndex].classList.remove('opacity-100', 'z-10');
+      secItems[secIndex].classList.add('opacity-0', 'z-0');
+      
+      const currVid = getSecVid(secItems[secIndex]);
+      if (currVid) currVid.pause();
+
+      secIndex = (secIndex + 1) % secItems.length;
+
+      secItems[secIndex].classList.remove('opacity-0', 'z-0');
+      secItems[secIndex].classList.add('opacity-100', 'z-10');
+      
+      secProgress = 0;
+      
+      const nextVid = getSecVid(secItems[secIndex]);
+      if (nextVid) {
+        nextVid.currentTime = 0;
+        const playPromise = nextVid.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(e => console.log('Auto-play prevented:', e));
+        }
+        secDuration = (nextVid.duration && !isNaN(nextVid.duration)) ? nextVid.duration * 1000 : 13000;
+      } else {
+        secDuration = 6000;
+      }
+    }
+
+    if (secPlayBtn) {
+      secPlayBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        secPaused = !secPaused;
+        const currVid = getSecVid(secItems[secIndex]);
+        if (currVid) {
+          secPaused ? currVid.pause() : currVid.play();
+        }
+        if (secPauseIcon && secPlayIcon) {
+          secPauseIcon.style.display = secPaused ? 'none' : 'block';
+          secPlayIcon.style.display = secPaused ? 'block' : 'none';
+        }
+      });
+    }
+
+    if (secItems.length > 0) {
+      secAnimFrame = requestAnimationFrame(startSecCarousel);
+    }
+  });
+</script>
+
+<script>
 // ── TIMER PERSISTENTE (localStorage) ──
     (function() {
       const KEY = 'recovery_timer_end';
