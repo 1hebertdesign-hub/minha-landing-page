@@ -579,7 +579,6 @@
       </div>
     </div>
   </section>
-
   <!-- ============================================
        RECOVERY+ SECTION
   ============================================= -->
@@ -593,8 +592,8 @@
           <div class="overflow-hidden rounded-[15px] shadow-2xl bg-[#131313]">
             <img src="PASSA 3.1.png" alt="Sapatilhas" class="w-full aspect-[4/5] lg:aspect-square object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.style.display='none'">
           </div>
-          <p class="text-white font-bold text-base md:text-lg leading-tight lg:leading-snug">
-            Outros calçados bloqueiam as suas sensações.<br>A tecnologia Recovery+ as amplifica.
+          <p class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug md:leading-snug">
+            Outros calçados bloqueiam as suas sensações.<br class="hidden sm:block">A tecnologia Recovery+ as amplifica.
           </p>
         </div>
 
@@ -603,7 +602,7 @@
           <div class="overflow-hidden rounded-[15px] shadow-2xl bg-[#131313]">
             <img src="PASSA 3.2.png" alt="Mecanorreceptores" class="w-full aspect-[4/5] lg:aspect-square object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.style.display='none'">
           </div>
-          <p class="text-white font-bold text-base md:text-lg leading-tight lg:leading-snug">
+          <p class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug md:leading-snug">
             Ativa as áreas sensoriais do seu cérebro estimulando milhares de receptores na planta do pé.
           </p>
         </div>
@@ -613,7 +612,7 @@
           <div class="overflow-hidden rounded-[15px] shadow-2xl bg-[#131313]">
             <img src="PASSA 3.3.png" alt="Ligação Corpo Mente" class="w-full aspect-[4/5] lg:aspect-square object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.style.display='none'">
           </div>
-          <p class="text-white font-bold text-base md:text-lg leading-tight lg:leading-snug">
+          <p class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug md:leading-snug">
             Recovery+: a conexão perfeita entre corpo e mente para os seus momentos decisivos.
           </p>
         </div>
@@ -732,7 +731,7 @@
   <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent"></div>
   <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight uppercase text-brand-text">
-      A tecnologia usada pelos <span class="text-brand-secondary">atletas da seleção</span>, <span class="text-brand-primary">agora acessível</span> pra seu dia a dia.
+      A tecnologia usada pelos <span class="text-brand-secondary">atletas</span>, <span class="text-brand-primary">agora acessível</span> pra seu dia a dia.
     </h2>
   </div>
 </section>
@@ -752,7 +751,7 @@
       Oferta válida até o próximo jogo do Brasil
     </h2>
     <p class="text-brand-secondary text-lg sm:text-xl font-bold uppercase tracking-wide mb-8 flex items-center justify-center gap-2 flex-wrap">
-      🇧🇷 Brasil x Marrocos 🇲🇦 <span class="text-brand-text-muted font-normal block sm:inline">| 19:00 • 13 Jun 2026</span>
+      🇧🇷 Brasil x Marrocos 🇲🇦 <span class="text-brand-text-muted font-normal block sm:inline">19:00 • 13 Jun 2026</span>
     </p>
     
     <!-- Flip Clock HTML -->
@@ -793,7 +792,7 @@
               py-5 px-8 text-xl font-display uppercase tracking-wider font-bold
               hover:bg-brand-primary/90 shadow-glow
               active:scale-[0.98] transition-all duration-300 ease-out">
-      &rarr; GARANTIR O MEU
+      GARANTIR O MEU
     </a>
   </div>
 </section>
@@ -1071,8 +1070,18 @@
       if(items[currentIndex].tagName === 'VIDEO') {
         const vid = items[currentIndex];
         vid.currentTime = 0;
-        vid.play();
-        currentDuration = (vid.duration && !isNaN(vid.duration)) ? vid.duration * 1000 : 8000;
+        vid.play().catch(() => {});
+        if (vid.readyState >= 1) {
+          currentDuration = vid.duration * 1000;
+        } else {
+          currentDuration = 8000; // fallback inicial
+          vid.addEventListener('loadedmetadata', function onLoaded() {
+            if (items[currentIndex] === vid) { // atualiza apenas se ainda for o slide ativo
+              currentDuration = vid.duration * 1000;
+            }
+            vid.removeEventListener('loadedmetadata', onLoaded);
+          });
+        }
       } else {
         currentDuration = 6000;
       }
@@ -1099,9 +1108,14 @@
 
     if(items.length > 0) {
       if (items[0].tagName === 'VIDEO') {
-        items[0].addEventListener('loadedmetadata', () => {
+        if (items[0].readyState >= 1) {
           currentDuration = items[0].duration * 1000;
-        });
+        } else {
+          items[0].addEventListener('loadedmetadata', () => {
+            if (currentIndex === 0) currentDuration = items[0].duration * 1000;
+          });
+        }
+        items[0].play().catch(() => {});
       }
       animationFrame = requestAnimationFrame(startCarousel);
     }
